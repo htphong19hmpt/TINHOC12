@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><h1>ĐỀ KIỂM TRA TIN HỌC 12 — BÀI 4: GIAO THỨC MẠNG</h1></title>
+  <title>ĐỀ KIỂM TRA TIN HỌC 12 — BÀI 5: THỰC HÀNH CHIA SẺ TÀI NGUYÊN TRÊN MẠNG</title>
   
-  <!-- Thư viện KaTeX hiển thị công thức LaTeX trong cặp $...$ -->
+  <!-- Thư viện KaTeX hiển thị công thức trong cặp $...$ -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
@@ -69,7 +69,7 @@
       font-weight: 600;
     }
 
-    /* Thanh tiến độ dính màn hình */
+    /* Thanh tiến độ dính phía trên màn hình */
     .sticky-progress {
       position: sticky;
       top: 10px;
@@ -96,7 +96,7 @@
       font-size: 17px;
     }
 
-    /* Thông tin học sinh */
+    /* Khối thông tin học sinh */
     .student-info {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -356,13 +356,13 @@
   <div class="container">
     <div class="header">
       <h1>ĐỀ KIỂM TRA MÔN TIN HỌC 12</h1>
-      <p>BÀI 4: GIAO THỨC MẠNG</p>
+      <p>BÀI 5: THỰC HÀNH CHIA SẺ TÀI NGUYÊN TRÊN MẠNG (25 CÂU HỎI)</p>
     </div>
 
-    <!-- Thanh đếm câu đã làm -->
+    <!-- Thanh tiến độ dính phía trên -->
     <div class="sticky-progress">
-      <div class="progress-text">Đã hoàn thành: <span id="answered-count">0</span> / 20 câu</div>
-      <div style="font-size: 13px; color: #dc2626; font-weight: 500;">(Phải làm đủ 20 câu mới được nộp)</div>
+      <div class="progress-text">Đã hoàn thành: <span id="answered-count">0</span> / 25 câu</div>
+      <div style="font-size: 13px; color: #dc2626; font-weight: 500;">(Phải trả lời đủ 25 câu mới được nộp)</div>
     </div>
 
     <!-- Thông tin học sinh -->
@@ -386,247 +386,313 @@
       
       <!-- Câu 1 -->
       <div class="question-card" id="card-q1">
-        <div class="question-title"><span>Câu 1</span> [Nhận biết]: Giao thức mạng (network protocol) hay giao thức truyền thông được định nghĩa là gì?</div>
+        <div class="question-title"><span>Câu 1</span> [Nhận biết]: Tài nguyên của một máy tính có thể chia sẻ trên mạng cục bộ bao gồm những loại nào?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q1" value="A" onchange="handleSelect(this)"> A. Thiết bị phần cứng dùng để kết nối các máy tính trong cùng mạng LAN.</label>
-          <label class="option-label"><input type="radio" name="q1" value="B" onchange="handleSelect(this)"> B. Tập hợp các quy định về cách thức giao tiếp để truyền dữ liệu giữa các đối tượng tham gia mạng.</label>
-          <label class="option-label"><input type="radio" name="q1" value="C" onchange="handleSelect(this)"> C. Bảng mã số hóa các chữ cái để biểu diễn văn bản trên mạng.</label>
-          <label class="option-label"><input type="radio" name="q1" value="D" onchange="handleSelect(this)"> D. Phần mềm ứng dụng dùng để truy cập các trang web trên Internet.</label>
+          <label class="option-label"><input type="radio" name="q1" value="A" onchange="handleSelect(this)"> A. Dữ liệu, phần mềm hoặc thiết bị phần cứng (như máy in, đĩa cứng).</label>
+          <label class="option-label"><input type="radio" name="q1" value="B" onchange="handleSelect(this)"> B. Chỉ các tệp văn bản và thư mục chứa hình ảnh.</label>
+          <label class="option-label"><input type="radio" name="q1" value="C" onchange="handleSelect(this)"> C. Duy nhất các thiết bị phần cứng kết nối qua cổng USB.</label>
+          <label class="option-label"><input type="radio" name="q1" value="D" onchange="handleSelect(this)"> D. Chỉ các ứng dụng mạng xã hội và tài khoản Microsoft.</label>
         </div>
       </div>
 
       <!-- Câu 2 -->
       <div class="question-card" id="card-q2">
-        <div class="question-title"><span>Câu 2</span> [Nhận biết]: Các quy định trong giao thức mạng liên quan đến định dạng, ý nghĩa và cách xử lý dữ liệu nhằm mục đích chính nào sau đây?</div>
+        <div class="question-title"><span>Câu 2</span> [Nhận biết]: Khái niệm chia sẻ tài nguyên trên mạng cục bộ được hiểu là gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q2" value="A" onchange="handleSelect(this)"> A. Tăng dung lượng lưu trữ bộ nhớ cho các máy tính tham gia mạng.</label>
-          <label class="option-label"><input type="radio" name="q2" value="B" onchange="handleSelect(this)"> B. Thay thế hoàn toàn phần cứng của thiết bị truyền thông.</label>
-          <label class="option-label"><input type="radio" name="q2" value="C" onchange="handleSelect(this)"> C. Đảm bảo việc gửi và nhận dữ liệu được thực hiện chính xác, tin cậy và hiệu quả.</label>
-          <label class="option-label"><input type="radio" name="q2" value="D" onchange="handleSelect(this)"> D. Tự động mã hóa tất cả các tệp văn bản sang hệ nhị phân.</label>
+          <label class="option-label"><input type="radio" name="q2" value="A" onchange="handleSelect(this)"> A. Việc truyền dữ liệu công khai cho tất cả người dùng trên mạng Internet toàn cầu.</label>
+          <label class="option-label"><input type="radio" name="q2" value="B" onchange="handleSelect(this)"> B. Việc cho phép người dùng từ một máy tính có thể "nhìn thấy" và sử dụng tài nguyên trên một máy tính khác thông qua mạng.</label>
+          <label class="option-label"><input type="radio" name="q2" value="C" onchange="handleSelect(this)"> C. Việc sao chép tự động toàn bộ đĩa cứng của máy tính này sang đĩa cứng của máy tính khác.</label>
+          <label class="option-label"><input type="radio" name="q2" value="D" onchange="handleSelect(this)"> D. Việc cắm chung một dây cáp nguồn điện cho nhiều máy tính trong phòng làm việc.</label>
         </div>
       </div>
 
       <!-- Câu 3 -->
       <div class="question-card" id="card-q3">
-        <div class="question-title"><span>Câu 3</span> [Nhận biết]: Giao thức thư điện tử nào sau đây quy định việc gửi thư điện tử?</div>
+        <div class="question-title"><span>Câu 3</span> [Nhận biết]: Việc chia sẻ tài nguyên trong mạng cục bộ nhằm mục đích chính nào sau đây?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q3" value="A" onchange="handleSelect(this)"> A. POP3</label>
-          <label class="option-label"><input type="radio" name="q3" value="B" onchange="handleSelect(this)"> B. IMAP</label>
-          <label class="option-label"><input type="radio" name="q3" value="C" onchange="handleSelect(this)"> C. HTTP</label>
-          <label class="option-label"><input type="radio" name="q3" value="D" onchange="handleSelect(this)"> D. SMTP</label>
+          <label class="option-label"><input type="radio" name="q3" value="A" onchange="handleSelect(this)"> A. Đăng tải thông tin quảng cáo lên các nền tảng mạng xã hội.</label>
+          <label class="option-label"><input type="radio" name="q3" value="B" onchange="handleSelect(this)"> B. Mở rộng bộ nhớ RAM trực tiếp cho các máy tính trạm.</label>
+          <label class="option-label"><input type="radio" name="q3" value="C" onchange="handleSelect(this)"> C. Phục vụ công việc nội bộ của tổ chức sở hữu mạng.</label>
+          <label class="option-label"><input type="radio" name="q3" value="D" onchange="handleSelect(this)"> D. Tự động nâng cấp hệ điều hành Windows cho tất cả các máy tính.</label>
         </div>
       </div>
 
       <!-- Câu 4 -->
       <div class="question-card" id="card-q4">
-        <div class="question-title"><span>Câu 4</span> [Nhận biết]: Hai giao thức nào quy định việc nhận và tải thư điện tử trong hệ thống thư điện tử?</div>
+        <div class="question-title"><span>Câu 4</span> [Thông hiểu]: Đặc điểm nào sau đây KHÔNG phải là nguyên tắc hay bản chất của việc chia sẻ tài nguyên trên mạng cục bộ?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q4" value="A" onchange="handleSelect(this)"> A. POP3 và IMAP</label>
-          <label class="option-label"><input type="radio" name="q4" value="B" onchange="handleSelect(this)"> B. SMTP và HTTP</label>
-          <label class="option-label"><input type="radio" name="q4" value="C" onchange="handleSelect(this)"> C. TCP và IP</label>
-          <label class="option-label"><input type="radio" name="q4" value="D" onchange="handleSelect(this)"> D. MAC và DNS</label>
+          <label class="option-label"><input type="radio" name="q4" value="A" onchange="handleSelect(this)"> A. Hoàn toàn mang tính kỹ thuật trên hệ điều hành.</label>
+          <label class="option-label"><input type="radio" name="q4" value="B" onchange="handleSelect(this)"> B. Phục vụ công việc nội bộ của tổ chức.</label>
+          <label class="option-label"><input type="radio" name="q4" value="C" onchange="handleSelect(this)"> C. Yêu cầu bắt buộc chủ tài nguyên phải cấp phép qua biện pháp kỹ thuật.</label>
+          <label class="option-label"><input type="radio" name="q4" value="D" onchange="handleSelect(this)"> D. Đòi hỏi phải thực hiện các thủ tục mạng xã hội như "kết bạn" hoặc "trả phí".</label>
         </div>
       </div>
 
       <!-- Câu 5 -->
       <div class="question-card" id="card-q5">
-        <div class="question-title"><span>Câu 5</span> [Nhận biết]: Để truyền dữ liệu trên mạng diện rộng hay Internet, hai giao thức quan trọng nhất xác định cách thức kết nối và trao đổi dữ liệu là gì?</div>
+        <div class="question-title"><span>Câu 5</span> [Thông hiểu]: Điều kiện bắt buộc để người dùng từ một máy tính khác có thể truy cập tài nguyên chia sẻ trên mạng cục bộ là gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q5" value="A" onchange="handleSelect(this)"> A. IP và TCP</label>
-          <label class="option-label"><input type="radio" name="q5" value="B" onchange="handleSelect(this)"> B. SMTP và POP3</label>
-          <label class="option-label"><input type="radio" name="q5" value="C" onchange="handleSelect(this)"> C. HTTP và DNS</label>
-          <label class="option-label"><input type="radio" name="q5" value="D" onchange="handleSelect(this)"> D. MAC và Ethernet</label>
+          <label class="option-label"><input type="radio" name="q5" value="A" onchange="handleSelect(this)"> A. Phải được chủ tài nguyên cấp phép thông qua các biện pháp kỹ thuật thực hiện trên hệ điều hành.</label>
+          <label class="option-label"><input type="radio" name="q5" value="B" onchange="handleSelect(this)"> B. Phải kết bạn qua tài khoản mạng xã hội với chủ máy tính.</label>
+          <label class="option-label"><input type="radio" name="q5" value="C" onchange="handleSelect(this)"> C. Phải trả phí bản quyền hàng tháng cho nhà cung cấp dịch vụ Internet.</label>
+          <label class="option-label"><input type="radio" name="q5" value="D" onchange="handleSelect(this)"> D. Phải tắt hoàn toàn màn hình của máy tính chứa tài nguyên.</label>
         </div>
       </div>
 
       <!-- Câu 6 -->
       <div class="question-card" id="card-q6">
-        <div class="question-title"><span>Câu 6</span> [Nhận biết]: Giao thức IP (Internet Protocol) có nhiệm vụ chính nào sau đây?</div>
+        <div class="question-title"><span>Câu 6</span> [Thông hiểu]: Nguy cơ chính về an toàn thông tin khi thực hiện chia sẻ tài nguyên trên mạng cục bộ là gì? (Ví dụ: dữ liệu không bị xóa tự động sau $24\text{ giờ}$ nhưng bị xâm nhập trái phép)</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q6" value="A" onchange="handleSelect(this)"> A. Đảm bảo truyền dữ liệu theo từng ứng dụng chính xác và tin cậy.</label>
-          <label class="option-label"><input type="radio" name="q6" value="B" onchange="handleSelect(this)"> B. Cấp phát số hiệu cổng cho các ứng dụng đang chạy.</label>
-          <label class="option-label"><input type="radio" name="q6" value="C" onchange="handleSelect(this)"> C. Quy định cách đánh địa chỉ và định tuyến để chuyển các gói dữ liệu từ LAN của máy gửi đến LAN của máy nhận.</label>
-          <label class="option-label"><input type="radio" name="q6" value="D" onchange="handleSelect(this)"> D. Phân giải tên miền bằng chữ thành địa chỉ IP.</label>
+          <label class="option-label"><input type="radio" name="q6" value="A" onchange="handleSelect(this)"> A. Máy tính sẽ lập tức bị cháy nguồn do quá tải điện năng.</label>
+          <label class="option-label"><input type="radio" name="q6" value="B" onchange="handleSelect(this)"> B. Dữ liệu có thể bị truy cập với mục đích xấu hoặc bị làm hỏng bởi người dùng trên mạng.</label>
+          <label class="option-label"><input type="radio" name="q6" value="C" onchange="handleSelect(this)"> C. Tất cả các tệp tin trên máy tính sẽ tự động bị xóa sau $24\text{ giờ}$.</label>
+          <label class="option-label"><input type="radio" name="q6" value="D" onchange="handleSelect(this)"> D. Máy tính không thể tiếp tục kết nối với bàn phím và chuột.</label>
         </div>
       </div>
 
       <!-- Câu 7 -->
       <div class="question-card" id="card-q7">
-        <div class="question-title"><span>Câu 7</span> [Nhận biết]: Địa chỉ IPv4 có cấu trúc biểu diễn đặc trưng nào sau đây? (ví dụ: $192.168.1.3$)</div>
+        <div class="question-title"><span>Câu 7</span> [Vận dụng]: Hệ điều hành Windows hỗ trợ những phương thức chia sẻ tài nguyên nào sau đây?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q7" value="A" onchange="handleSelect(this)"> A. Là một số 2 byte, viết dưới dạng hệ nhị phân.</label>
-          <label class="option-label"><input type="radio" name="q7" value="B" onchange="handleSelect(this)"> B. Là một số 8 byte, viết dưới dạng mã hexa.</label>
-          <label class="option-label"><input type="radio" name="q7" value="C" onchange="handleSelect(this)"> C. Là một số 16 byte, viết dưới dạng chuỗi ký tự.</label>
-          <label class="option-label"><input type="radio" name="q7" value="D" onchange="handleSelect(this)"> D. Là một số 4 byte, thường được viết dưới dạng hệ thập phân phân tách bởi dấu chấm.</label>
+          <label class="option-label"><input type="radio" name="q7" value="A" onchange="handleSelect(this)"> A. Chỉ hỗ trợ chia sẻ qua dây cáp mạng LAN nối trực tiếp giữa hai máy tính.</label>
+          <label class="option-label"><input type="radio" name="q7" value="B" onchange="handleSelect(this)"> B. Chỉ hỗ trợ chia sẻ qua các trang web lưu trữ trung gian trên Internet.</label>
+          <label class="option-label"><input type="radio" name="q7" value="C" onchange="handleSelect(this)"> C. Chia sẻ qua mạng cục bộ (có dây/không dây), qua tài khoản Microsoft, qua đám mây hoặc qua ủy nhiệm cho một tài khoản cụ thể.</label>
+          <label class="option-label"><input type="radio" name="q7" value="D" onchange="handleSelect(this)"> D. Chỉ chia sẻ được khi các máy tính sử dụng chung một hệ điều hành Linux.</label>
         </div>
       </div>
 
       <!-- Câu 8 -->
       <div class="question-card" id="card-q8">
-        <div class="question-title"><span>Câu 8</span> [Nhận biết]: Nhiệm vụ chính của giao thức TCP (Transmission Control Protocol) là gì?</div>
+        <div class="question-title"><span>Câu 8</span> [Nhận biết]: Để các máy tính trong mạng cục bộ thiết lập nhóm người dùng có độ tin cậy cao hơn cho phép chia sẻ tài nguyên với nhau, hệ điều hành Windows yêu cầu chuyển trạng thái mạng sang chế độ nào?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q8" value="A" onchange="handleSelect(this)"> A. Đảm bảo việc truyền dữ liệu theo từng ứng dụng một cách chính xác, tin cậy và hiệu quả.</label>
-          <label class="option-label"><input type="radio" name="q8" value="B" onchange="handleSelect(this)"> B. Định tuyến dẫn đường cho các gói tin trên phạm vi toàn cầu.</label>
-          <label class="option-label"><input type="radio" name="q8" value="C" onchange="handleSelect(this)"> C. Quy định cách xử lý khi xảy ra xung đột tín hiệu trong mạng LAN.</label>
-          <label class="option-label"><input type="radio" name="q8" value="D" onchange="handleSelect(this)"> D. Chuyển đổi tên miền trang web thành địa chỉ IP tương ứng.</label>
+          <label class="option-label"><input type="radio" name="q8" value="A" onchange="handleSelect(this)"> A. Chế độ Mạng công cộng (Public network).</label>
+          <label class="option-label"><input type="radio" name="q8" value="B" onchange="handleSelect(this)"> B. Chế độ Máy bay (Airplane mode).</label>
+          <label class="option-label"><input type="radio" name="q8" value="C" onchange="handleSelect(this)"> C. Chế độ Ngoại tuyến (Offline mode).</label>
+          <label class="option-label"><input type="radio" name="q8" value="D" onchange="handleSelect(this)"> D. Chế độ Mạng riêng (Private network).</label>
         </div>
       </div>
 
       <!-- Câu 9 -->
       <div class="question-card" id="card-q9">
-        <div class="question-title"><span>Câu 9</span> [Thông hiểu]: Trong giao thức truyền thông mạng cục bộ (Ethernet), việc trao đổi dữ liệu giữa các máy tính trong mạng LAN căn cứ vào loại địa chỉ nào?</div>
+        <div class="question-title"><span>Câu 9</span> [Nhận biết]: Việc bật tính năng File and printer sharing trong cài đặt mạng của Windows có tác dụng gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q9" value="A" onchange="handleSelect(this)"> A. Địa chỉ IP do nhà mạng cấp.</label>
-          <label class="option-label"><input type="radio" name="q9" value="B" onchange="handleSelect(this)"> B. Địa chỉ tên miền DNS.</label>
-          <label class="option-label"><input type="radio" name="q9" value="C" onchange="handleSelect(this)"> C. Số hiệu cổng ứng dụng (Port).</label>
-          <label class="option-label"><input type="radio" name="q9" value="D" onchange="handleSelect(this)"> D. Địa chỉ MAC bằng số khác nhau đi theo phần cứng.</label>
+          <label class="option-label"><input type="radio" name="q9" value="A" onchange="handleSelect(this)"> A. Cho phép các máy tính khác trên mạng có thể nhìn thấy (discoverable) tên máy tính và cho phép chia sẻ tệp, máy in.</label>
+          <label class="option-label"><input type="radio" name="q9" value="B" onchange="handleSelect(this)"> B. Tự động cài đặt phần mềm diệt virus cho tất cả các máy tính trong LAN.</label>
+          <label class="option-label"><input type="radio" name="q9" value="C" onchange="handleSelect(this)"> C. Tăng tốc độ đường truyền Internet lên mức tối đa.</label>
+          <label class="option-label"><input type="radio" name="q9" value="D" onchange="handleSelect(this)"> D. Khóa toàn bộ các tệp tin cá nhân không cho chủ máy tính truy cập.</label>
         </div>
       </div>
 
       <!-- Câu 10 -->
       <div class="question-card" id="card-q10">
-        <div class="question-title"><span>Câu 10</span> [Thông hiểu]: Trong mạng LAN, khi dữ liệu được chuyển đi, quy định nào của giao thức Ethernet giúp máy nhận phát hiện lỗi truyền và yêu cầu gửi lại?</div>
+        <div class="question-title"><span>Câu 10</span> [Nhận biết]: Tường lửa (Firewall) trong hệ điều hành đóng vai trò là loại phần mềm gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q10" value="A" onchange="handleSelect(this)"> A. Quy định khung truyền dữ liệu.</label>
-          <label class="option-label"><input type="radio" name="q10" value="B" onchange="handleSelect(this)"> B. Quy định về cổng mặc định (default gateway).</label>
-          <label class="option-label"><input type="radio" name="q10" value="C" onchange="handleSelect(this)"> C. Quy định về mã kiểm tra đi kèm dữ liệu.</label>
-          <label class="option-label"><input type="radio" name="q10" value="D" onchange="handleSelect(this)"> D. Quy định về số hiệu cổng ứng dụng.</label>
+          <label class="option-label"><input type="radio" name="q10" value="A" onchange="handleSelect(this)"> A. Phần mềm soạn thảo văn bản nâng cao.</label>
+          <label class="option-label"><input type="radio" name="q10" value="B" onchange="handleSelect(this)"> B. Phần mềm kiểm soát truy cập nhằm ngăn ngừa nguy cơ xâm nhập từ bên ngoài.</label>
+          <label class="option-label"><input type="radio" name="q10" value="C" onchange="handleSelect(this)"> C. Phần mềm chuyên dùng để xếp hàng đợi cho máy in vật lý.</label>
+          <label class="option-label"><input type="radio" name="q10" value="D" onchange="handleSelect(this)"> D. Phần mềm quản lý các tệp nén dữ liệu.</label>
         </div>
       </div>
 
       <!-- Câu 11 -->
       <div class="question-card" id="card-q11">
-        <div class="question-title"><span>Câu 11</span> [Thông hiểu]: Vì sao giao thức Ethernet quy định dữ liệu truyền trong mạng LAN phải được chia thành từng gói (khung) có độ dài xác định?</div>
+        <div class="question-title"><span>Câu 11</span> [Thông hiểu]: Trong thời gian thực hiện chia sẻ nội bộ, vì sao người dùng đôi khi cần phải tạm thời tắt tường lửa ở chế độ mạng riêng?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q11" value="A" onchange="handleSelect(this)"> A. Để tránh việc truyền một lượng tin dài không giới hạn trên đường truyền.</label>
-          <label class="option-label"><input type="radio" name="q11" value="B" onchange="handleSelect(this)"> B. Để thay thế hoàn toàn địa chỉ IP bằng địa chỉ MAC.</label>
-          <label class="option-label"><input type="radio" name="q11" value="C" onchange="handleSelect(this)"> C. Để tự động phân giải tên miền thành địa chỉ IP.</label>
-          <label class="option-label"><input type="radio" name="q11" value="D" onchange="handleSelect(this)"> D. Để không cần sử dụng mã kiểm tra khi gửi tin.</label>
+          <label class="option-label"><input type="radio" name="q11" value="A" onchange="handleSelect(this)"> A. Vì tường lửa làm giảm dung lượng bộ nhớ đĩa cứng của máy tính.</label>
+          <label class="option-label"><input type="radio" name="q11" value="B" onchange="handleSelect(this)"> B. Vì tường lửa tự động xóa tất cả các thư mục được chia sẻ.</label>
+          <label class="option-label"><input type="radio" name="q11" value="C" onchange="handleSelect(this)"> C. Vì tường lửa có thể chặn việc truy cập tài nguyên chia sẻ từ các máy tính khác.</label>
+          <label class="option-label"><input type="radio" name="q11" value="D" onchange="handleSelect(this)"> D. Vì tường lửa ngăn cản máy tính kết nối với nguồn điện.</label>
         </div>
       </div>
 
       <!-- Câu 12 -->
       <div class="question-card" id="card-q12">
-        <div class="question-title"><span>Câu 12</span> [Thông hiểu]: Điểm khác biệt cốt lõi giữa địa chỉ MAC và địa chỉ IP là gì?</div>
+        <div class="question-title"><span>Câu 12</span> [Thông hiểu]: Điểm khác biệt cơ bản giữa chế độ Mạng riêng (Private network) và Mạng công cộng (Public) trong Windows khi chia sẻ tài nguyên là gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q12" value="A" onchange="handleSelect(this)"> A. MAC là địa chỉ logic dùng để định tuyến toàn cầu, IP là địa chỉ vật lý đi theo phần cứng.</label>
-          <label class="option-label"><input type="radio" name="q12" value="B" onchange="handleSelect(this)"> B. MAC chỉ dùng cho ứng dụng thư điện tử, IP chỉ dùng cho ứng dụng truyền siêu văn bản.</label>
-          <label class="option-label"><input type="radio" name="q12" value="C" onchange="handleSelect(this)"> C. MAC có độ dài $4\text{ byte}$, còn IP không có độ dài xác định.</label>
-          <label class="option-label"><input type="radio" name="q12" value="D" onchange="handleSelect(this)"> D. MAC là địa chỉ vật lý đi theo phần cứng dùng trong cùng mạng LAN, IP là địa chỉ logic dùng để định tuyến toàn cầu.</label>
+          <label class="option-label"><input type="radio" name="q12" value="A" onchange="handleSelect(this)"> A. Mạng riêng bắt buộc phải trả phí, Mạng công cộng hoàn toàn miễn phí.</label>
+          <label class="option-label"><input type="radio" name="q12" value="B" onchange="handleSelect(this)"> B. Mạng riêng chỉ dùng cho kết nối không dây, Mạng công cộng chỉ dùng cho cáp đồng.</label>
+          <label class="option-label"><input type="radio" name="q12" value="C" onchange="handleSelect(this)"> C. Mạng riêng tự động bật tường lửa chặn mọi truy cập, Mạng công cộng cho phép mọi máy tính xem dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q12" value="D" onchange="handleSelect(this)"> D. Mạng riêng thiết lập nhóm người dùng có độ tin cậy cao hơn cho phép chia sẻ tài nguyên, còn Mạng công cộng hạn chế tính năng này để bảo vệ máy tính.</label>
         </div>
       </div>
 
       <!-- Câu 13 -->
       <div class="question-card" id="card-q13">
-        <div class="question-title"><span>Câu 13</span> [Thông hiểu]: Trong phương pháp định tuyến tĩnh, router căn cứ vào đâu để biết nhóm địa chỉ IP nào sẽ được gửi theo cổng nào?</div>
+        <div class="question-title"><span>Câu 13</span> [Vận dụng]: Một học sinh đã bật tính năng chia sẻ một thư mục trên máy tính Windows của mình, nhưng các máy tính khác trong mạng LAN không thể tìm thấy tên máy tính của học sinh đó. Học sinh đó nhiều khả năng chưa thực hiện thiết lập môi trường nào?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q13" value="A" onchange="handleSelect(this)"> A. Bảng định tuyến (Routing table).</label>
-          <label class="option-label"><input type="radio" name="q13" value="B" onchange="handleSelect(this)"> B. Địa chỉ MAC của máy gửi.</label>
-          <label class="option-label"><input type="radio" name="q13" value="C" onchange="handleSelect(this)"> C. Mã kiểm tra lỗi của khung truyền.</label>
-          <label class="option-label"><input type="radio" name="q13" value="D" onchange="handleSelect(this)"> D. Số hiệu cổng ứng dụng (Port).</label>
+          <label class="option-label"><input type="radio" name="q13" value="A" onchange="handleSelect(this)"> A. Chưa bật tính năng File and printer sharing để máy tính trở thành discoverable hoặc chưa chuyển sang chế độ Private network.</label>
+          <label class="option-label"><input type="radio" name="q13" value="B" onchange="handleSelect(this)"> B. Chưa thực hiện thao tác cắm thêm thẻ nhớ ngoài vào máy tính.</label>
+          <label class="option-label"><input type="radio" name="q13" value="C" onchange="handleSelect(this)"> C. Chưa đăng ký tài khoản trả phí trên mạng xã hội.</label>
+          <label class="option-label"><input type="radio" name="q13" value="D" onchange="handleSelect(this)"> D. Chưa cài đặt phần mềm soạn thảo văn bản Microsoft Word.</label>
         </div>
       </div>
 
       <!-- Câu 14 -->
       <div class="question-card" id="card-q14">
-        <div class="question-title"><span>Câu 14</span> [Thông hiểu]: Để dữ liệu truyền đi không bị lẫn giữa các ứng dụng đang cùng chạy trên một máy tính, giao thức TCP thực hiện giải pháp nào?</div>
+        <div class="question-title"><span>Câu 14</span> [Nhận biết]: Khi tiến hành phân quyền chia sẻ thư mục trên Windows, hai loại đối tượng người dùng mà chủ tài nguyên có thể chỉ định là gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q14" value="A" onchange="handleSelect(this)"> A. Gán địa chỉ MAC của thiết bị nhận cho từng gói tin.</label>
-          <label class="option-label"><input type="radio" name="q14" value="B" onchange="handleSelect(this)"> B. Chuyển tất cả gói dữ liệu qua cổng mặc định (default gateway).</label>
-          <label class="option-label"><input type="radio" name="q14" value="C" onchange="handleSelect(this)"> C. Cấp phát cho mỗi ứng dụng đang chạy một số hiệu cổng (Port) và gắn cổng đó vào gói dữ liệu.</label>
-          <label class="option-label"><input type="radio" name="q14" value="D" onchange="handleSelect(this)"> D. Yêu cầu giao thức DNS phân giải lại địa chỉ IP.</label>
+          <label class="option-label"><input type="radio" name="q14" value="A" onchange="handleSelect(this)"> A. Chỉ duy nhất tài khoản Quản trị viên hệ thống (Administrator).</label>
+          <label class="option-label"><input type="radio" name="q14" value="B" onchange="handleSelect(this)"> B. Một tài khoản cụ thể hoặc tất cả mọi người (Everyone).</label>
+          <label class="option-label"><input type="radio" name="q14" value="C" onchange="handleSelect(this)"> C. Tất cả các máy tính trên mạng toàn cầu hoặc máy chủ DNS.</label>
+          <label class="option-label"><input type="radio" name="q14" value="D" onchange="handleSelect(this)"> D. Các địa chỉ IP thuộc mạng diện rộng WAN.</label>
         </div>
       </div>
 
       <!-- Câu 15 -->
       <div class="question-card" id="card-q15">
-        <div class="question-title"><span>Câu 15</span> [Thông hiểu]: Tại sao giao thức TCP ở nơi gửi phải cắt dữ liệu thành nhiều gói có độ dài xác định và đánh số thứ tự trước khi truyền?</div>
+        <div class="question-title"><span>Câu 15</span> [Nhận biết]: Khi một thư mục chia sẻ được phân quyền ở mức Quyền đọc (Read), người dùng kết nối qua mạng được phép và không được phép làm gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q15" value="A" onchange="handleSelect(this)"> A. Được phép chỉnh sửa nội dung nhưng không được phép xem tệp.</label>
+          <label class="option-label"><input type="radio" name="q15" value="B" onchange="handleSelect(this)"> B. Được phép xóa hoàn toàn thư mục nhưng không được phép đọc dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q15" value="C" onchange="handleSelect(this)"> C. Được phép xem, đọc và làm việc với tệp/thư mục nhưng không được phép sửa đổi hoặc xóa dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q15" value="D" onchange="handleSelect(this)"> D. Được phép đổi tên máy chủ nhưng không được mở tệp.</label>
+        </div>
+      </div>
+
+      <!-- Câu 16 -->
+      <div class="question-card" id="card-q16">
+        <div class="question-title"><span>Câu 16</span> [Nhận biết]: Mức phân quyền Quyền đọc và sửa (Read/Write) cấp cho người dùng truy cập thư mục chia sẻ những khả năng nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q16" value="A" onchange="handleSelect(this)"> A. Chỉ được phép đọc văn bản trên màn hình mà không được lưu tệp.</label>
+          <label class="option-label"><input type="radio" name="q16" value="B" onchange="handleSelect(this)"> B. Chỉ được phép in tài liệu ra máy in vật lý.</label>
+          <label class="option-label"><input type="radio" name="q16" value="C" onchange="handleSelect(this)"> C. Tự động xóa thư mục sau khi người dùng thoát khỏi mạng.</label>
+          <label class="option-label"><input type="radio" name="q16" value="D" onchange="handleSelect(this)"> D. Vừa có quyền xem, vừa có quyền chỉnh sửa, bổ sung hoặc xóa dữ liệu trong thư mục chia sẻ.</label>
+        </div>
+      </div>
+
+      <!-- Câu 17 -->
+      <div class="question-card" id="card-q17">
+        <div class="question-title"><span>Câu 17</span> [Thông hiểu]: Để dừng hoàn toàn việc chia sẻ một thư mục đã chia sẻ trước đó trên Windows, người dùng cần truy cập vào đâu và chọn thao tác nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q17" value="A" onchange="handleSelect(this)"> A. Truy cập cửa sổ cấu hình chia sẻ nâng cao (Advanced Sharing) và bỏ đánh dấu chọn tại ô Share this folder.</label>
+          <label class="option-label"><input type="radio" name="q17" value="B" onchange="handleSelect(this)"> B. Tắt nguồn điện của máy tính ngay lập tức.</label>
+          <label class="option-label"><input type="radio" name="q17" value="C" onchange="handleSelect(this)"> C. Cắm lại dây cáp mạng LAN sang cổng kết nối khác.</label>
+          <label class="option-label"><input type="radio" name="q17" value="D" onchange="handleSelect(this)"> D. Xóa bỏ hoàn bộ hệ điều hành Windows trên máy tính.</label>
+        </div>
+      </div>
+
+      <!-- Câu 18 -->
+      <div class="question-card" id="card-q18">
+        <div class="question-title"><span>Câu 18</span> [Vận dụng]: Trưởng phòng học tập muốn chia sẻ một thư mục chứa tài liệu tham khảo cho các thành viên trong nhóm. Trưởng phòng muốn tất cả mọi người đều đọc được tài liệu nhưng không ai có thể vô tình sửa đổi nội dung hoặc xóa mất các tệp tin gốc. Trưởng phòng nên chọn mức phân quyền nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q18" value="A" onchange="handleSelect(this)"> A. Phân quyền Read/Write cho tài khoản Everyone.</label>
+          <label class="option-label"><input type="radio" name="q18" value="B" onchange="handleSelect(this)"> B. Phân quyền Read (Quyền đọc) cho đối tượng được chia sẻ.</label>
+          <label class="option-label"><input type="radio" name="q18" value="C" onchange="handleSelect(this)"> C. Tắt tính năng tường lửa và không đặt bất kỳ hạn chế nào.</label>
+          <label class="option-label"><input type="radio" name="q18" value="D" onchange="handleSelect(this)"> D. Chuyển thư mục sang chế độ Mạng công cộng (Public).</label>
+        </div>
+      </div>
+
+      <!-- Câu 19 -->
+      <div class="question-card" id="card-q19">
+        <div class="question-title"><span>Câu 19</span> [Vận dụng]: Một nhóm dự án gồm 3 nhân viên cần cùng nhau soạn thảo và cập nhật báo cáo tuần trong một thư mục dùng chung trên mạng LAN. Người quản lý nhóm cần chọn mức phân quyền nào cho thư mục chia sẻ này?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q19" value="A" onchange="handleSelect(this)"> A. Quyền xem trước (Preview only).</label>
+          <label class="option-label"><input type="radio" name="q19" value="B" onchange="handleSelect(this)"> B. Quyền khóa dữ liệu (Lock).</label>
+          <label class="option-label"><input type="radio" name="q19" value="C" onchange="handleSelect(this)"> C. Quyền đọc và sửa (Read/Write).</label>
+          <label class="option-label"><input type="radio" name="q19" value="D" onchange="handleSelect(this)"> D. Quyền chỉ đọc (Read).</label>
+        </div>
+      </div>
+
+      <!-- Câu 20 -->
+      <div class="question-card" id="card-q20">
+        <div class="question-title"><span>Câu 20</span> [Nhận biết]: Lợi ích kinh tế lớn nhất của việc chia sẻ máy in trong mạng cục bộ tại một văn phòng cơ quan là gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q20" value="A" onchange="handleSelect(this)"> A. Tăng gấp đôi tốc độ in ấn của máy in vật lý.</label>
+          <label class="option-label"><input type="radio" name="q20" value="B" onchange="handleSelect(this)"> B. Tự động sửa chữa các lỗi kẹt giấy của máy in.</label>
+          <label class="option-label"><input type="radio" name="q20" value="C" onchange="handleSelect(this)"> C. Giúp máy in không bao giờ bị hết mực.</label>
+          <label class="option-label"><input type="radio" name="q20" value="D" onchange="handleSelect(this)"> D. Chỉ cần một máy in kết nối trực tiếp với một máy tính nhưng tất cả các máy tính khác trong mạng LAN đều có thể gửi lệnh in, giúp tiết kiệm chi phí phần cứng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 21 -->
+      <div class="question-card" id="card-q21">
+        <div class="question-title"><span>Câu 21</span> [Nhận biết]: Máy tính cung cấp dịch vụ in (Print Server) trong mạng cục bộ được định nghĩa là máy tính như thế nào?</div>
         
-        <!-- Sơ đồ SVG biểu diễn cơ chế TCP cắt dữ liệu thành từng gói nhỏ (Hình vector sắc nét, không lỗi) -->
+        <!-- Sơ đồ SVG Print Server sắc nét, không bao giờ bị lỗi ảnh -->
         <div class="diagram-container">
-          <svg width="100%" height="80" viewBox="0 0 500 80" style="max-width: 500px; display: inline-block;">
-            <rect x="10" y="20" width="100" height="40" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
-            <text x="60" y="45" font-size="12" font-weight="bold" fill="#1e1b4b" text-anchor="middle">Dữ liệu gốc</text>
+          <svg width="100%" height="90" viewBox="0 0 540 90" style="max-width: 540px; display: inline-block;">
+            <!-- Máy tính trạm B -->
+            <rect x="10" y="25" width="90" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="55" y="49" font-size="12" fill="#0369a1" font-weight="bold" text-anchor="middle">Máy trạm B</text>
             
-            <path d="M 120 40 L 150 40" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+            <!-- Máy tính trạm C -->
+            <rect x="120" y="25" width="90" height="40" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="165" y="49" font-size="12" fill="#0369a1" font-weight="bold" text-anchor="middle">Máy trạm C</text>
             
-            <rect x="160" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
-            <text x="195" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #1</text>
+            <!-- Mũi tên qua mạng LAN -->
+            <path d="M 215 45 L 265 45" stroke="#64748b" stroke-width="2" stroke-dasharray="4" marker-end="url(#arrow)"/>
+            <text x="240" y="38" font-size="10" fill="#475569" text-anchor="middle">LAN</text>
             
-            <rect x="245" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
-            <text x="280" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #2</text>
+            <!-- Print Server (Máy tính A) -->
+            <rect x="275" y="20" width="125" height="50" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="337" y="42" font-size="11" fill="#92400e" font-weight="bold" text-anchor="middle">Máy A (Print Server)</text>
+            <text x="337" y="58" font-size="9" fill="#b45309" text-anchor="middle">Xếp hàng đợi in</text>
             
-            <rect x="330" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
-            <text x="365" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #3</text>
+            <!-- Cáp USB kết nối Máy in -->
+            <path d="M 405 45 L 435 45" stroke="#d97706" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="420" y="38" font-size="10" fill="#92400e" text-anchor="middle">USB</text>
+            
+            <!-- Máy in X -->
+            <rect x="445" y="25" width="85" height="40" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+            <text x="487" y="49" font-size="12" fill="#15803d" font-weight="bold" text-anchor="middle">Máy in X</text>
 
             <defs>
               <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
               </marker>
             </defs>
           </svg>
         </div>
 
         <div class="options">
-          <label class="option-label"><input type="radio" name="q15" value="A" onchange="handleSelect(this)"> A. Vì các gói tin chỉ đi được qua duy nhất một đường cố định.</label>
-          <label class="option-label"><input type="radio" name="q15" value="B" onchange="handleSelect(this)"> B. Vì các gói tin có thể đi theo nhiều đường khác nhau và đến không đúng thứ tự, giúp nơi nhận căn cứ vào số thứ tự để ráp lại đúng cấu trúc ban đầu.</label>
-          <label class="option-label"><input type="radio" name="q15" value="C" onchange="handleSelect(this)"> C. Vì để đảm bảo địa chỉ MAC không bị đổi trong quá trình truyền.</label>
-          <label class="option-label"><input type="radio" name="q15" value="D" onchange="handleSelect(this)"> D. Vì để chuyển đổi tên miền thành địa chỉ nhị phân.</label>
+          <label class="option-label"><input type="radio" name="q21" value="A" onchange="handleSelect(this)"> A. Là máy tính kết nối trực tiếp với máy in vật lý, nhận yêu cầu in từ các máy tính khác trong mạng, xếp thành hàng đợi và điều khiển máy in lần lượt in tài liệu.</label>
+          <label class="option-label"><input type="radio" name="q21" value="B" onchange="handleSelect(this)"> B. Là máy tính chuyên dùng để phát sóng Wi-Fi cho các thiết bị di động trong văn phòng.</label>
+          <label class="option-label"><input type="radio" name="q21" value="C" onchange="handleSelect(this)"> C. Là máy tính nằm ở trụ sở của nhà cung cấp dịch vụ Internet viễn thông.</label>
+          <label class="option-label"><input type="radio" name="q21" value="D" onchange="handleSelect(this)"> D. Là máy tính không kết nối mạng nhưng lưu trữ tất cả các phông chữ in.</label>
         </div>
       </div>
 
-      <!-- Câu 16 -->
-      <div class="question-card" id="card-q16">
-        <div class="question-title"><span>Câu 16</span> [Vận dụng]: Một router nhận được một gói dữ liệu cần chuyển tiếp, nhưng địa chỉ nhận của gói dữ liệu này không xuất hiện trong bảng định tuyến (Routing table) của router. Dựa trên cơ chế định tuyến, router sẽ xử lý gói dữ liệu này như thế nào?</div>
+      <!-- Câu 22 -->
+      <div class="question-card" id="card-q22">
+        <div class="question-title"><span>Câu 22</span> [Thông hiểu]: Để một máy tính nối trực tiếp với máy in vật lý có thể chia sẻ máy in đó cho toàn bộ mạng LAN, điều kiện đầu tiên cần thiết lập trên máy tính này là gì? (Ví dụ: không cần cắm thêm $10\text{ dây cáp}$ mạng)</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q16" value="A" onchange="handleSelect(this)"> A. Hủy bỏ gói dữ liệu và báo lỗi trực tiếp về máy gửi.</label>
-          <label class="option-label"><input type="radio" name="q16" value="B" onchange="handleSelect(this)"> B. Chuyển gói dữ liệu ngược về địa chỉ MAC của máy gửi trong LAN.</label>
-          <label class="option-label"><input type="radio" name="q16" value="C" onchange="handleSelect(this)"> C. Yêu cầu giao thức TCP cấp phát lại một số hiệu cổng mới.</label>
-          <label class="option-label"><input type="radio" name="q16" value="D" onchange="handleSelect(this)"> D. Tự động gửi gói dữ liệu qua cổng mặc định (default gateway).</label>
+          <label class="option-label"><input type="radio" name="q22" value="A" onchange="handleSelect(this)"> A. Cắm thêm $10\text{ dây cáp}$ mạng từ máy in đến tất cả các máy tính còn lại.</label>
+          <label class="option-label"><input type="radio" name="q22" value="B" onchange="handleSelect(this)"> B. Thiết lập máy tính làm máy cung cấp dịch vụ in trên mạng (cài đặt máy in bình thường và bật chế độ chia sẻ máy in).</label>
+          <label class="option-label"><input type="radio" name="q22" value="C" onchange="handleSelect(this)"> C. Tắt bỏ phần mềm điều khiển (driver) của máy in vật lý.</label>
+          <label class="option-label"><input type="radio" name="q22" value="D" onchange="handleSelect(this)"> D. Mua thêm tài khoản dung lượng đám mây trả phí.</label>
         </div>
       </div>
 
-      <!-- Câu 17 -->
-      <div class="question-card" id="card-q17">
-        <div class="question-title"><span>Câu 17</span> [Vận dụng]: Trong quá trình chuyển một gói tin trên Internet, các gói tin được gán địa chỉ IP của máy gửi và máy nhận. Khi gói tin cần di chuyển trên đường truyền vật lý để tới thiết bị nhận tiếp theo, thông tin nào bắt buộc phải được gán thêm vào gói tin?</div>
+      <!-- Câu 23 -->
+      <div class="question-card" id="card-q23">
+        <div class="question-title"><span>Câu 23</span> [Thông hiểu]: Trên các máy tính trạm trong mạng LAN (không nối dây trực tiếp với máy in vật lý), người dùng cần thực hiện điều kiện gì để có thể in tài liệu qua máy in chia sẻ?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q17" value="A" onchange="handleSelect(this)"> A. Tên miền DNS của máy chủ đích.</label>
-          <label class="option-label"><input type="radio" name="q17" value="B" onchange="handleSelect(this)"> B. Mã kiểm tra độ dài khung truyền.</label>
-          <label class="option-label"><input type="radio" name="q17" value="C" onchange="handleSelect(this)"> C. Địa chỉ MAC của thiết bị nhận tiếp theo.</label>
-          <label class="option-label"><input type="radio" name="q17" value="D" onchange="handleSelect(this)"> D. Số hiệu cổng ứng dụng (Port) của giao thức HTTP.</label>
+          <label class="option-label"><input type="radio" name="q23" value="A" onchange="handleSelect(this)"> A. Rút dây cáp mạng LAN ra khỏi máy tính trạm.</label>
+          <label class="option-label"><input type="radio" name="q23" value="B" onchange="handleSelect(this)"> B. Cài đặt lại toàn bộ hệ điều hành Windows từ đầu.</label>
+          <label class="option-label"><input type="radio" name="q23" value="C" onchange="handleSelect(this)"> C. Khai báo kết nối và chọn sử dụng máy in mạng đó qua chức năng tìm kiếm thiết bị (Add device / Browse) mà không cần nối dây trực tiếp.</label>
+          <label class="option-label"><input type="radio" name="q23" value="D" onchange="handleSelect(this)"> D. Phải ngồi trực tiếp tại máy tính chứa máy in để thao tác.</label>
         </div>
       </div>
 
-      <!-- Câu 18 -->
-      <div class="question-card" id="card-q18">
-        <div class="question-title"><span>Câu 18</span> [Vận dụng]: Trong quá trình truyền tệp tin qua mạng Internet bằng giao thức TCP, một số gói dữ liệu bị thất lạc do nghẽn mạng. Cơ chế nào của TCP giúp đảm bảo tệp tin nhận được ở máy đích vẫn đầy đủ và chính xác?</div>
+      <!-- Câu 24 -->
+      <div class="question-card" id="card-q24">
+        <div class="question-title"><span>Câu 24</span> [Vận dụng]: Trong một văn phòng, máy tính A nối trực tiếp với máy in X qua cổng USB. Máy tính B và C nằm trong cùng mạng LAN gửi lệnh in tài liệu đến máy in X. Lệnh in của B và C được xếp vào hàng đợi trên máy tính A trước khi được in ra. Trong sơ đồ này, máy tính A đóng vai trò gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q18" value="A" onchange="handleSelect(this)"> A. Cơ chế tự động chuyển gói tin qua cổng mặc định (default gateway).</label>
-          <label class="option-label"><input type="radio" name="q18" value="B" onchange="handleSelect(this)"> B. Cơ chế xác nhận giữa nơi gửi và nơi nhận để phát hiện gói tin bị sai sót hoặc thất lạc và yêu cầu gửi lại.</label>
-          <label class="option-label"><input type="radio" name="q18" value="C" onchange="handleSelect(this)"> C. Cơ chế sử dụng địa chỉ MAC để thay thế gói tin bị mất.</label>
-          <label class="option-label"><input type="radio" name="q18" value="D" onchange="handleSelect(this)"> D. Cơ chế phân giải tên miền của giao thức DNS.</label>
+          <label class="option-label"><input type="radio" name="q24" value="A" onchange="handleSelect(this)"> A. Máy chủ phân giải tên miền (DNS Server).</label>
+          <label class="option-label"><input type="radio" name="q24" value="B" onchange="handleSelect(this)"> B. Điểm truy cập không dây (WAP).</label>
+          <label class="option-label"><input type="radio" name="q24" value="C" onchange="handleSelect(this)"> C. Bộ định tuyến mạng diện rộng (Router).</label>
+          <label class="option-label"><input type="radio" name="q24" value="D" onchange="handleSelect(this)"> D. Máy tính cung cấp dịch vụ in (Print Server).</label>
         </div>
       </div>
 
-      <!-- Câu 19 -->
-      <div class="question-card" id="card-q19">
-        <div class="question-title"><span>Câu 19</span> [Vận dụng]: Một người dùng mở trình duyệt web và nhập tên miền moet.edu.vn. Dựa vào tài liệu nguồn, giao thức nào sẽ đảm nhận việc phân giải tên bằng chữ này thành địa chỉ IP tương ứng để máy tính thiết lập kết nối?</div>
+      <!-- Câu 25 -->
+      <div class="question-card" id="card-q25">
+        <div class="question-title"><span>Câu 25</span> [Vận dụng]: Một nhân viên mang máy tính xách tay cá nhân đến văn phòng và kết nối vào mạng Wi-Fi nội bộ (Private network). Văn phòng đã có một máy in được chia sẻ qua mạng từ máy tính kế toán. Để nhân viên này có thể in tài liệu từ máy tính xách tay của mình, thao tác đúng cần thực hiện là gì?</div>
         <div class="options">
-          <label class="option-label"><input type="radio" name="q19" value="A" onchange="handleSelect(this)"> A. Giao thức HTTP</label>
-          <label class="option-label"><input type="radio" name="q19" value="B" onchange="handleSelect(this)"> B. Giao thức DNS</label>
-          <label class="option-label"><input type="radio" name="q19" value="C" onchange="handleSelect(this)"> C. Giao thức SMTP</label>
-          <label class="option-label"><input type="radio" name="q19" value="D" onchange="handleSelect(this)"> D. Giao thức Ethernet</label>
-        </div>
-      </div>
-
-      <!-- Câu 20 -->
-      <div class="question-card" id="card-q20">
-        <div class="question-title"><span>Câu 20</span> [Vận dụng]: Khi một máy tính gửi một bức thư điện tử có đính kèm tệp tin đến máy chủ thư, quy trình sử dụng các giao thức diễn ra như thế nào theo đúng chức năng được nêu trong tài liệu?</div>
-        <div class="options">
-          <label class="option-label"><input type="radio" name="q20" value="A" onchange="handleSelect(this)"> A. Giao thức HTTP quy định việc gửi thư, TCP phân giải địa chỉ IP, và IP cấp phát cổng ứng dụng.</label>
-          <label class="option-label"><input type="radio" name="q20" value="B" onchange="handleSelect(this)"> B. Giao thức SMTP quy định việc gửi thư; TCP cắt dữ liệu, đánh số thứ tự và đảm bảo truyền chính xác; IP quy định đánh địa chỉ và định tuyến gói tin.</label>
-          <label class="option-label"><input type="radio" name="q20" value="C" onchange="handleSelect(this)"> C. Giao thức POP3 quy định việc gửi thư; Ethernet gán địa chỉ IP; TCP phân giải tên miền.</label>
-          <label class="option-label"><input type="radio" name="q20" value="D" onchange="handleSelect(this)"> D. Giao thức IMAP quy định việc gửi thư; DNS kiểm tra mã lỗi; IP gán cổng mặc định.</label>
+          <label class="option-label"><input type="radio" name="q25" value="A" onchange="handleSelect(this)"> A. Tháo máy in ra khỏi máy tính kế toán và cắm dây USB vào máy tính xách tay.</label>
+          <label class="option-label"><input type="radio" name="q25" value="B" onchange="handleSelect(this)"> B. Sử dụng chức năng tìm kiếm thiết bị (Add device / Browse) trên máy tính xách tay để khai báo kết nối và chọn máy in mạng đã được chia sẻ.</label>
+          <label class="option-label"><input type="radio" name="q25" value="C" onchange="handleSelect(this)"> C. Chuyển trạng thái mạng trên máy tính xách tay sang Mạng công cộng (Public).</label>
+          <label class="option-label"><input type="radio" name="q25" value="D" onchange="handleSelect(this)"> D. Tắt tính năng File and printer sharing trên máy tính xách tay.</label>
         </div>
       </div>
 
@@ -660,7 +726,7 @@
 
     <!-- Khối chi tiết đáp án & lời giải (Bật/tắt) -->
     <div class="detail-section" id="detail-section">
-      <h3>BẢNG ĐÁP ÁN ĐÚNG</h3>
+      <h3>BẢNG ĐÁP ÁN ĐÚNG (25 CÂU)</h3>
       <div class="table-container">
         <table>
           <thead>
@@ -669,54 +735,61 @@
               <th>Đáp án</th>
               <th>Câu</th>
               <th>Đáp án</th>
+              <th>Câu</th>
+              <th>Đáp án</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><strong>1</strong></td><td><strong>B</strong></td><td><strong>11</strong></td><td><strong>A</strong></td></tr>
-            <tr><td><strong>2</strong></td><td><strong>C</strong></td><td><strong>12</strong></td><td><strong>D</strong></td></tr>
-            <tr><td><strong>3</strong></td><td><strong>D</strong></td><td><strong>13</strong></td><td><strong>A</strong></td></tr>
-            <tr><td><strong>4</strong></td><td><strong>A</strong></td><td><strong>14</strong></td><td><strong>C</strong></td></tr>
-            <tr><td><strong>5</strong></td><td><strong>A</strong></td><td><strong>15</strong></td><td><strong>B</strong></td></tr>
-            <tr><td><strong>6</strong></td><td><strong>C</strong></td><td><strong>16</strong></td><td><strong>D</strong></td></tr>
-            <tr><td><strong>7</strong></td><td><strong>D</strong></td><td><strong>17</strong></td><td><strong>C</strong></td></tr>
-            <tr><td><strong>8</strong></td><td><strong>A</strong></td><td><strong>18</strong></td><td><strong>B</strong></td></tr>
-            <tr><td><strong>9</strong></td><td><strong>D</strong></td><td><strong>19</strong></td><td><strong>B</strong></td></tr>
-            <tr><td><strong>10</strong></td><td><strong>C</strong></td><td><strong>20</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>1</strong></td><td><strong>A</strong></td><td><strong>10</strong></td><td><strong>B</strong></td><td><strong>19</strong></td><td><strong>C</strong></td></tr>
+            <tr><td><strong>2</strong></td><td><strong>B</strong></td><td><strong>11</strong></td><td><strong>C</strong></td><td><strong>20</strong></td><td><strong>D</strong></td></tr>
+            <tr><td><strong>3</strong></td><td><strong>C</strong></td><td><strong>12</strong></td><td><strong>D</strong></td><td><strong>21</strong></td><td><strong>A</strong></td></tr>
+            <tr><td><strong>4</strong></td><td><strong>D</strong></td><td><strong>13</strong></td><td><strong>A</strong></td><td><strong>22</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>5</strong></td><td><strong>A</strong></td><td><strong>14</strong></td><td><strong>B</strong></td><td><strong>23</strong></td><td><strong>C</strong></td></tr>
+            <tr><td><strong>6</strong></td><td><strong>B</strong></td><td><strong>15</strong></td><td><strong>C</strong></td><td><strong>24</strong></td><td><strong>D</strong></td></tr>
+            <tr><td><strong>7</strong></td><td><strong>C</strong></td><td><strong>16</strong></td><td><strong>D</strong></td><td><strong>25</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>8</strong></td><td><strong>D</strong></td><td><strong>17</strong></td><td><strong>A</strong></td><td></td><td></td></tr>
+            <tr><td><strong>9</strong></td><td><strong>A</strong></td><td><strong>18</strong></td><td><strong>B</strong></td><td></td><td></td></tr>
           </tbody>
         </table>
       </div>
 
       <h3>HƯỚNG DẪN GIẢI CHI TIẾT</h3>
-      <div class="explanation-item"><strong>Câu 1: B</strong> — Căn cứ vào Mục 1a: Giao thức mạng (network protocol) hay giao thức truyền thông là tập hợp các quy định về cách thức giao tiếp để truyền dữ liệu giữa các đối tượng tham gia mạng.</div>
-      <div class="explanation-item"><strong>Câu 2: C</strong> — Căn cứ vào Mục 1a: Các quy định này nhằm đảm bảo việc gửi và nhận dữ liệu được thực hiện chính xác, tin cậy và hiệu quả.</div>
-      <div class="explanation-item"><strong>Câu 3: D</strong> — Căn cứ vào Mục 1b: Giao thức SMTP (Simple Mail Transfer Protocol) quy định việc gửi thư điện tử.</div>
-      <div class="explanation-item"><strong>Câu 4: A</strong> — Căn cứ vào Mục 1b: POP3 (Post Office Protocol phiên bản 3) &amp; IMAP (Internet Message Access Protocol) quy định việc nhận và tải thư điện tử.</div>
-      <div class="explanation-item"><strong>Câu 5: A</strong> — Căn cứ vào Mục 2: Hai giao thức quan trọng nhất xác định cách thức kết nối và trao đổi dữ liệu trên mạng diện rộng hoặc Internet là IP (Internet Protocol) và TCP (Transmission Control Protocol).</div>
-      <div class="explanation-item"><strong>Câu 6: C</strong> — Căn cứ vào Mục 2a: Giao thức IP quy định cách đánh địa chỉ và định tuyến (dẫn đường) để chuyển các gói dữ liệu từ LAN của máy gửi đến LAN của máy nhận.</div>
-      <div class="explanation-item"><strong>Câu 7: D</strong> — Căn cứ vào Mục 2a: Địa chỉ IPv4 là một số 4 byte, thường được viết dưới dạng hệ thập phân phân tách bởi dấu chấm (dot decimal, ví dụ: 192.168.1.3).</div>
-      <div class="explanation-item"><strong>Câu 8: A</strong> — Căn cứ vào Mục 2b: Nhiệm vụ chính của giao thức TCP là đảm bảo việc truyền dữ liệu theo từng ứng dụng một cách chính xác, tin cậy và hiệu quả.</div>
-      <div class="explanation-item"><strong>Câu 9: D</strong> — Căn cứ vào Mục 1b: Trong giao thức Ethernet, truyền dữ liệu trong LAN căn cứ vào địa chỉ MAC (Media Access Control) bằng số khác nhau đi theo phần cứng.</div>
-      <div class="explanation-item"><strong>Câu 10: C</strong> — Căn cứ vào Mục 1b: Dữ liệu chuyển đi có kèm mã kiểm tra để máy nhận phát hiện lỗi truyền; nếu có lỗi sẽ yêu cầu gửi lại.</div>
-      <div class="explanation-item"><strong>Câu 11: A</strong> — Căn cứ vào Mục 1b: Giao thức Ethernet quy định dữ liệu được chia thành từng gói (khung) có độ dài xác định chứ không truyền một lượng tin dài không giới hạn.</div>
-      <div class="explanation-item"><strong>Câu 12: D</strong> — Căn cứ vào Mục 2a: Địa chỉ MAC là địa chỉ vật lý đi theo phần cứng, dùng khi gói tin truyền trên đường truyền vật lý trong cùng mạng LAN; địa chỉ IP là địa chỉ logic dùng để định tuyến dẫn đường trên phạm vi toàn cầu.</div>
-      <div class="explanation-item"><strong>Câu 13: A</strong> — Căn cứ vào Mục 2a: Trong phương pháp định tuyến tĩnh, mỗi router sử dụng một bảng định tuyến (Routing table) hướng dẫn nhóm địa chỉ IP nào sẽ gửi theo cổng nào.</div>
-      <div class="explanation-item"><strong>Câu 14: C</strong> — Căn cứ vào Mục 2b: Mỗi ứng dụng đang chạy được cấp phát một số hiệu cổng (Port). Gói dữ liệu chuyển đi được gắn cổng ứng dụng để không bị lẫn giữa các ứng dụng.</div>
-      <div class="explanation-item"><strong>Câu 15: B</strong> — Căn cứ vào Mục 2b: Do các gói tin có thể đi theo nhiều đường khác nhau và đến không đúng thứ tự, TCP ở nơi nhận sẽ căn cứ vào số thứ tự để ráp lại đúng cấu trúc ban đầu.</div>
-      <div class="explanation-item"><strong>Câu 16: D</strong> — Căn cứ vào Mục 2a: Cổng mặc định (default gateway): Nếu địa chỉ nhận không có trong bảng hướng dẫn (bảng định tuyến) của router, gói dữ liệu sẽ tự động được gửi qua cổng mặc định.</div>
-      <div class="explanation-item"><strong>Câu 17: C</strong> — Căn cứ vào Mục 2a: Các gói tin gửi đi trên Internet luôn được gán địa chỉ IP của máy gửi và máy nhận. Để đi trên đường truyền vật lý, gói tin cần được gán thêm địa chỉ MAC của thiết bị nhận tiếp theo.</div>
-      <div class="explanation-item"><strong>Câu 18: B</strong> — Căn cứ vào Mục 2b: Quy định cơ chế xác nhận giữa nơi gửi và nơi nhận để phát hiện gói tin bị sai sót hoặc thất lạc và yêu cầu gửi lại.</div>
-      <div class="explanation-item"><strong>Câu 19: B</strong> — Căn cứ vào Mục 2c: DNS (Domain Name System) là giao thức hệ thống tên miền, giúp phân giải tên bằng chữ dễ nhớ (như moet.edu.vn) thành địa chỉ IP tương ứng.</div>
-      <div class="explanation-item"><strong>Câu 20: B</strong> — Căn cứ tổng hợp Mục 1b, 2a, 2b: SMTP chịu trách nhiệm quy định việc gửi thư; TCP chia nhỏ, đánh số thứ tự và đảm bảo tính chính xác, tin cậy; IP quy định việc đánh địa chỉ logic và định tuyến gói dữ liệu.</div>
+      <div class="explanation-item"><strong>Câu 1: A</strong> — Căn cứ Mục 1: Tài nguyên của một máy tính trên mạng có thể là dữ liệu, phần mềm hoặc thiết bị phần cứng (như máy in, đĩa cứng...).</div>
+      <div class="explanation-item"><strong>Câu 2: B</strong> — Căn cứ Mục 1: Chia sẻ tài nguyên trên mạng cục bộ là cho phép người dùng từ một máy tính có thể "nhìn thấy" và sử dụng tài nguyên trên một máy tính khác thông qua mạng.</div>
+      <div class="explanation-item"><strong>Câu 3: C</strong> — Căn cứ Mục 1: Chia sẻ tài nguyên trong mạng cục bộ phục vụ công việc nội bộ của tổ chức sở hữu mạng.</div>
+      <div class="explanation-item"><strong>Câu 4: D</strong> — Căn cứ Mục 1: Việc chia sẻ hoàn toàn mang tính kỹ thuật, không đòi hỏi các thủ tục mạng xã hội như "kết bạn" hay "trả phí".</div>
+      <div class="explanation-item"><strong>Câu 5: A</strong> — Căn cứ Mục 1: Yêu cầu bắt buộc là phải được chủ tài nguyên cấp phép thông qua các biện pháp kỹ thuật thực hiện trên hệ điều hành.</div>
+      <div class="explanation-item"><strong>Câu 6: B</strong> — Căn cứ Mục 1: Nguy cơ an toàn thông tin là dữ liệu bị truy cập với mục đích xấu hoặc bị làm hỏng bởi người dùng trên mạng.</div>
+      <div class="explanation-item"><strong>Câu 7: C</strong> — Căn cứ Mục 1: Windows hỗ trợ chia sẻ qua mạng cục bộ (có dây/không dây), qua tài khoản Microsoft, qua đám mây hoặc ủy nhiệm cho tài khoản cụ thể.</div>
+      <div class="explanation-item"><strong>Câu 8: D</strong> — Căn cứ Mục 2: Cần chuyển trạng thái mạng sang chế độ Mạng riêng (Private network) thay vì Mạng công cộng (Public) để thiết lập nhóm người dùng có độ tin cậy cao hơn.</div>
+      <div class="explanation-item"><strong>Câu 9: A</strong> — Căn cứ Mục 2: Bật tính năng File and printer sharing cho phép các máy tính khác trên mạng có thể nhìn thấy (discoverable) tên máy tính và cho phép chia sẻ tệp, máy in.</div>
+      <div class="explanation-item"><strong>Câu 10: B</strong> — Căn cứ Mục 2: Tường lửa (Firewall) là phần mềm kiểm soát truy cập nhằm ngăn ngừa nguy cơ xâm nhập từ bên ngoài.</div>
+      <div class="explanation-item"><strong>Câu 11: C</strong> — Căn cứ Mục 2: Trong thời gian chia sẻ nội bộ, có thể cần tạm thời tắt tường lửa ở chế độ mạng riêng nếu tường lửa chặn việc truy cập tài nguyên chia sẻ.</div>
+      <div class="explanation-item"><strong>Câu 12: D</strong> — Căn cứ Mục 2: Mạng riêng thiết lập nhóm người dùng có độ tin cậy cao hơn cho phép chia sẻ tài nguyên với nhau, còn Mạng công cộng nhằm hạn chế nguy cơ bị xâm nhập.</div>
+      <div class="explanation-item"><strong>Câu 13: A</strong> — Căn cứ Mục 2: Nếu các máy khác không tìm thấy tên máy tính, người dùng cần kiểm tra việc bật File and printer sharing (để máy trở thành discoverable) và trạng thái Private network.</div>
+      <div class="explanation-item"><strong>Câu 14: B</strong> — Căn cứ Mục 3: Chủ tài nguyên có thể chỉ định đối tượng được chia sẻ là một tài khoản cụ thể hoặc tất cả mọi người (Everyone).</div>
+      <div class="explanation-item"><strong>Câu 15: C</strong> — Căn cứ Mục 3: Quyền đọc (Read) cho phép người dùng xem, đọc và làm việc với tệp/thư mục nhưng không được phép sửa đổi hoặc xóa dữ liệu.</div>
+      <div class="explanation-item"><strong>Câu 16: D</strong> — Căn cứ Mục 3: Quyền đọc và sửa (Read/Write) cho phép người dùng vừa có quyền xem, vừa có quyền chỉnh sửa, bổ sung hoặc xóa dữ liệu.</div>
+      <div class="explanation-item"><strong>Câu 17: A</strong> — Căn cứ Mục 3: Để dừng chia sẻ thư mục, người dùng vào cửa sổ cấu hình chia sẻ nâng cao (Advanced Sharing) và bỏ đánh dấu chọn tại ô Share this folder.</div>
+      <div class="explanation-item"><strong>Câu 18: B</strong> — Căn cứ Mục 3: Mức Quyền đọc (Read) giúp người dùng xem và đọc nội dung tài liệu nhưng ngăn chặn việc sửa đổi hoặc xóa tệp tin gốc.</div>
+      <div class="explanation-item"><strong>Câu 19: C</strong> — Căn cứ Mục 3: Mức Quyền đọc và sửa (Read/Write) cho phép các thành viên trong nhóm cùng chỉnh sửa, bổ sung và cập nhật nội dung báo cáo.</div>
+      <div class="explanation-item"><strong>Câu 20: D</strong> — Căn cứ Mục 4: Lợi ích là chỉ cần một máy in kết nối trực tiếp với một máy tính nhưng tất cả máy tính khác trong LAN đều gửi được lệnh in, giúp tiết kiệm chi phí phần cứng.</div>
+      <div class="explanation-item"><strong>Câu 21: A</strong> — Căn cứ Mục 4: Máy tính cung cấp dịch vụ in (Print Server) là máy tính kết nối trực tiếp với máy in vật lý, nhận yêu cầu in, xếp hàng đợi và điều khiển máy in lần lượt in tài liệu.</div>
+      <div class="explanation-item"><strong>Câu 22: B</strong> — Căn cứ Mục 4: Điều kiện 1 trên máy nối trực tiếp máy in là thiết lập máy tính làm máy cung cấp dịch vụ in trên mạng (cài máy in bình thường và bật chế độ chia sẻ máy in).</div>
+      <div class="explanation-item"><strong>Câu 23: C</strong> — Căn cứ Mục 4: Điều kiện 2 trên các máy tính khác trong mạng là khai báo kết nối và chọn sử dụng máy in mạng đó qua chức năng tìm kiếm thiết bị (Add device / Browse).</div>
+      <div class="explanation-item"><strong>Câu 24: D</strong> — Căn cứ Mục 4: Máy tính A nối trực tiếp với máy in, điều khiển hàng đợi in từ B và C nên giữ vai trò là Máy tính cung cấp dịch vụ in (Print Server).</div>
+      <div class="explanation-item"><strong>Câu 25: B</strong> — Căn cứ Mục 4: Để in từ máy tính xách tay qua mạng LAN, người dùng vào chức năng Add device / Browse trên hệ điều hành để khai báo kết nối và chọn sử dụng máy in đã được chia sẻ.</div>
     </div>
   </div>
 
   <script>
-    // Bảng đáp án chuẩn 20 câu[cite: 1]
+    // Bảng đáp án chuẩn 25 câu theo tài liệu Bài 5
     const correctAnswers = {
-      q1: "B", q2: "C", q3: "D", q4: "A", q5: "A",
-      q6: "C", q7: "D", q8: "A", q9: "D", q10: "C",
-      q11: "A", q12: "D", q13: "A", q14: "C", q15: "B",
-      q16: "D", q17: "C", q18: "B", q19: "B", q20: "B"
+      q1: "A", q2: "B", q3: "C", q4: "D", q5: "A",
+      q6: "B", q7: "C", q8: "D", q9: "A", q10: "B",
+      q11: "C", q12: "D", q13: "A", q14: "B", q15: "C",
+      q16: "D", q17: "A", q18: "B", q19: "C", q20: "D",
+      q21: "A", q22: "B", q23: "C", q24: "D", q25: "B"
     };
 
     let userSubmissions = {};
@@ -732,7 +805,7 @@
       return audioCtx;
     }
 
-    // Âm thanh sôi động khi học sinh chọn phương án
+    // Âm thanh sôi động khi học sinh chọn câu trả lời
     function playClickSound() {
       const ctx = getAudioContext();
       if (ctx.state === 'suspended') ctx.resume();
@@ -757,7 +830,7 @@
       osc.stop(ctx.currentTime + 0.12);
     }
 
-    // Âm cảnh báo khi chưa hoàn thành
+    // Âm cảnh báo khi chưa làm xong
     function playWarningSound() {
       const ctx = getAudioContext();
       if (ctx.state === 'suspended') ctx.resume();
@@ -779,7 +852,7 @@
       osc.stop(ctx.currentTime + 0.3);
     }
 
-    // Âm thanh sôi động ăn mừng khi nộp thành công
+    // Âm thanh sôi động chúc mừng khi nộp thành công
     function playSubmitFanfare() {
       const ctx = getAudioContext();
       if (ctx.state === 'suspended') ctx.resume();
@@ -822,7 +895,7 @@
 
     function updateProgress() {
       let count = 0;
-      for (let i = 1; i <= 20; i++) {
+      for (let i = 1; i <= 25; i++) {
         if (document.querySelector(`input[name="q${i}"]:checked`)) {
           count++;
         }
@@ -846,9 +919,9 @@
       // Xóa cảnh báo cũ
       document.querySelectorAll('.question-card').forEach(card => card.classList.remove('unanswered-alert'));
 
-      // 2. Kiểm tra điều kiện phải trả lời đầy đủ 20 câu
+      // 2. Kiểm tra điều kiện phải trả lời đầy đủ 25 câu
       const unanswered = [];
-      const totalQuestions = 20;
+      const totalQuestions = 25;
 
       for (let i = 1; i <= totalQuestions; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
@@ -872,7 +945,7 @@
           firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        alert(`Bạn chưa hoàn thành đầy đủ! Còn thiếu ${unanswered.length} câu:\n(Câu: ${unanswered.join(', ')})\n\nPhải trả lời đầy đủ 20 câu mới được nộp bài.`);
+        alert(`Bạn chưa hoàn thành đầy đủ! Còn thiếu ${unanswered.length} câu:\n(Câu: ${unanswered.join(', ')})\n\nPhải trả lời đầy đủ 25 câu mới được nộp bài.`);
         return;
       }
 
@@ -885,7 +958,7 @@
       }
 
       correctCountResult = correctCount;
-      finalScore = (correctCount * (10 / totalQuestions)).toFixed(1);
+      finalScore = (correctCount * (10 / totalQuestions)).toFixed(2);
 
       playSubmitFanfare();
 
@@ -931,14 +1004,13 @@
       }
     }
 
-    // Chức năng xuất dữ liệu ra file Excel (.xls)
+    // Chức năng xuất file Excel (.xls)
     function exportToExcel() {
       const fullname = document.getElementById("fullname").value.trim();
       const classroom = document.getElementById("classroom").value.trim();
       const studentId = document.getElementById("student-id").value.trim();
-      const totalQuestions = 20;
+      const totalQuestions = 25;
 
-      // Xây dựng template HTML tương thích Excel XML (.xls)
       let tableRows = '';
       for (let i = 1; i <= totalQuestions; i++) {
         const studentAns = userSubmissions[`q${i}`] || 'Chưa chọn';
@@ -967,7 +1039,7 @@
             <x:ExcelWorkbook>
               <x:ExcelWorksheets>
                 <x:ExcelWorksheet>
-                  <x:Name>KetQuaKiemTra</x:Name>
+                  <x:Name>KetQuaBai5_25Cau</x:Name>
                   <x:WorksheetOptions>
                     <x:DisplayGridlines/>
                   </x:WorksheetOptions>
@@ -987,7 +1059,7 @@
         <body>
           <table>
             <tr><td colspan="4" class="title">KẾT QUẢ KIỂM TRA MÔN TIN HỌC 12</td></tr>
-            <tr><td colspan="4" style="text-align: center; font-style: italic;">Bài 4: Giao thức mạng</td></tr>
+            <tr><td colspan="4" style="text-align: center; font-style: italic;">Bài 5: Thực hành chia sẻ tài nguyên trên mạng</td></tr>
             <tr><td colspan="4"></td></tr>
             <tr>
               <td class="info-label">Họ tên học sinh:</td>
@@ -1022,12 +1094,11 @@
         </html>
       `;
 
-      // Tạo Blob và kích hoạt tải file .xls
       const blob = new Blob([excelTemplate], { type: 'application/vnd.ms-excel;charset=utf-8' });
       const downloadLink = document.createElement("a");
       const sanitizedName = fullname.replace(/\s+/g, '_');
       downloadLink.href = URL.createObjectURL(blob);
-      downloadLink.download = `KetQua_${sanitizedName}_Lop${classroom}.xls`;
+      downloadLink.download = `KetQua_Bai5_25Cau_${sanitizedName}_Lop${classroom}.xls`;
       document.body.appendChild(downloadLink);
       downloadLink.click();
       document.body.removeChild(downloadLink);
