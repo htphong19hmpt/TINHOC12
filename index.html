@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><h1>ĐỀ KIỂM TRA TIN HỌC 12 — BÀI 4: GIAO THỨC MẠNG</h1></title>
+  
+  <!-- Thư viện KaTeX hiển thị công thức LaTeX trong cặp $...$ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body, {delimiters: [{left: '$', right: '$', display: false}]});"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --border: #e2e8f0;
+      --danger: #ef4444;
+      --purple: #8b5cf6;
+      --purple-hover: #7c3aed;
+      --excel: #107c41;
+      --excel-hover: #0b5a2f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 15px;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 15px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* Thanh tiến độ dính màn hình */
+    .sticky-progress {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+      background: #ffffff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+    }
+
+    .progress-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .progress-text span {
+      color: var(--primary);
+      font-size: 17px;
+    }
+
+    /* Thông tin học sinh */
+    .student-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      outline: none;
+      background: #ffffff;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    /* Thẻ câu hỏi */
+    .question-card {
+      margin-bottom: 25px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      transition: all 0.25s ease;
+    }
+
+    .question-card.unanswered-alert {
+      border: 2px solid var(--danger);
+      background-color: #fef2f2;
+    }
+
+    .question-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #0f172a;
+    }
+
+    .question-title span {
+      color: var(--primary);
+    }
+
+    .diagram-container {
+      text-align: center;
+      margin: 12px 0 16px 0;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .option-label:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    .option-label input[type="radio"] {
+      margin-right: 12px;
+      transform: scale(1.15);
+      cursor: pointer;
+      accent-color: var(--primary);
+    }
+
+    .option-label.selected {
+      background-color: #eff6ff;
+      border-color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Nút nộp bài */
+    .submit-container {
+      text-align: center;
+      margin: 35px 0 20px 0;
+    }
+
+    .btn-submit {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 45px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98);
+    }
+
+    /* Khối kết quả */
+    #result-box {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      background: #f8fafc;
+      border: 2px dashed var(--primary);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #result-box h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .score-badge {
+      display: inline-block;
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+      background: var(--primary);
+      padding: 6px 24px;
+      border-radius: 30px;
+      margin: 12px 0;
+    }
+
+    .btn-group-action {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .btn-excel {
+      background: var(--excel);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(16, 124, 65, 0.25);
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-excel:hover {
+      background: var(--excel-hover);
+    }
+
+    .btn-toggle-detail {
+      background: var(--purple);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(139, 92, 246, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-toggle-detail:hover {
+      background: var(--purple-hover);
+    }
+
+    /* Phần chi tiết đáp án */
+    .detail-section {
+      display: none;
+      margin-top: 30px;
+      border-top: 2px solid var(--border);
+      padding-top: 25px;
+    }
+
+    .detail-section h3 {
+      margin-bottom: 15px;
+      color: #0f172a;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    td strong {
+      color: var(--primary);
+    }
+
+    .explanation-item {
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      border-radius: 4px;
+      font-size: 14.5px;
+    }
+
+    .explanation-item strong {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>ĐỀ KIỂM TRA MÔN TIN HỌC 12</h1>
+      <p>BÀI 4: GIAO THỨC MẠNG</p>
+    </div>
+
+    <!-- Thanh đếm câu đã làm -->
+    <div class="sticky-progress">
+      <div class="progress-text">Đã hoàn thành: <span id="answered-count">0</span> / 20 câu</div>
+      <div style="font-size: 13px; color: #dc2626; font-weight: 500;">(Phải làm đủ 20 câu mới được nộp)</div>
+    </div>
+
+    <!-- Thông tin học sinh -->
+    <div class="student-info">
+      <div class="form-group">
+        <label for="fullname">Họ tên học sinh:</label>
+        <input type="text" id="fullname" placeholder="Nhập họ và tên..." required>
+      </div>
+      <div class="form-group">
+        <label for="classroom">Lớp:</label>
+        <input type="text" id="classroom" placeholder="Ví dụ: 12A1..." required>
+      </div>
+      <div class="form-group">
+        <label for="student-id">Stt:</label>
+        <input type="number" id="student-id" placeholder="Số thứ tự..." required>
+      </div>
+    </div>
+
+    <!-- Biểu mẫu câu hỏi -->
+    <form id="quiz-form">
+      
+      <!-- Câu 1 -->
+      <div class="question-card" id="card-q1">
+        <div class="question-title"><span>Câu 1</span> [Nhận biết]: Giao thức mạng (network protocol) hay giao thức truyền thông được định nghĩa là gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q1" value="A" onchange="handleSelect(this)"> A. Thiết bị phần cứng dùng để kết nối các máy tính trong cùng mạng LAN.</label>
+          <label class="option-label"><input type="radio" name="q1" value="B" onchange="handleSelect(this)"> B. Tập hợp các quy định về cách thức giao tiếp để truyền dữ liệu giữa các đối tượng tham gia mạng.</label>
+          <label class="option-label"><input type="radio" name="q1" value="C" onchange="handleSelect(this)"> C. Bảng mã số hóa các chữ cái để biểu diễn văn bản trên mạng.</label>
+          <label class="option-label"><input type="radio" name="q1" value="D" onchange="handleSelect(this)"> D. Phần mềm ứng dụng dùng để truy cập các trang web trên Internet.</label>
+        </div>
+      </div>
+
+      <!-- Câu 2 -->
+      <div class="question-card" id="card-q2">
+        <div class="question-title"><span>Câu 2</span> [Nhận biết]: Các quy định trong giao thức mạng liên quan đến định dạng, ý nghĩa và cách xử lý dữ liệu nhằm mục đích chính nào sau đây?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q2" value="A" onchange="handleSelect(this)"> A. Tăng dung lượng lưu trữ bộ nhớ cho các máy tính tham gia mạng.</label>
+          <label class="option-label"><input type="radio" name="q2" value="B" onchange="handleSelect(this)"> B. Thay thế hoàn toàn phần cứng của thiết bị truyền thông.</label>
+          <label class="option-label"><input type="radio" name="q2" value="C" onchange="handleSelect(this)"> C. Đảm bảo việc gửi và nhận dữ liệu được thực hiện chính xác, tin cậy và hiệu quả.</label>
+          <label class="option-label"><input type="radio" name="q2" value="D" onchange="handleSelect(this)"> D. Tự động mã hóa tất cả các tệp văn bản sang hệ nhị phân.</label>
+        </div>
+      </div>
+
+      <!-- Câu 3 -->
+      <div class="question-card" id="card-q3">
+        <div class="question-title"><span>Câu 3</span> [Nhận biết]: Giao thức thư điện tử nào sau đây quy định việc gửi thư điện tử?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q3" value="A" onchange="handleSelect(this)"> A. POP3</label>
+          <label class="option-label"><input type="radio" name="q3" value="B" onchange="handleSelect(this)"> B. IMAP</label>
+          <label class="option-label"><input type="radio" name="q3" value="C" onchange="handleSelect(this)"> C. HTTP</label>
+          <label class="option-label"><input type="radio" name="q3" value="D" onchange="handleSelect(this)"> D. SMTP</label>
+        </div>
+      </div>
+
+      <!-- Câu 4 -->
+      <div class="question-card" id="card-q4">
+        <div class="question-title"><span>Câu 4</span> [Nhận biết]: Hai giao thức nào quy định việc nhận và tải thư điện tử trong hệ thống thư điện tử?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q4" value="A" onchange="handleSelect(this)"> A. POP3 và IMAP</label>
+          <label class="option-label"><input type="radio" name="q4" value="B" onchange="handleSelect(this)"> B. SMTP và HTTP</label>
+          <label class="option-label"><input type="radio" name="q4" value="C" onchange="handleSelect(this)"> C. TCP và IP</label>
+          <label class="option-label"><input type="radio" name="q4" value="D" onchange="handleSelect(this)"> D. MAC và DNS</label>
+        </div>
+      </div>
+
+      <!-- Câu 5 -->
+      <div class="question-card" id="card-q5">
+        <div class="question-title"><span>Câu 5</span> [Nhận biết]: Để truyền dữ liệu trên mạng diện rộng hay Internet, hai giao thức quan trọng nhất xác định cách thức kết nối và trao đổi dữ liệu là gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q5" value="A" onchange="handleSelect(this)"> A. IP và TCP</label>
+          <label class="option-label"><input type="radio" name="q5" value="B" onchange="handleSelect(this)"> B. SMTP và POP3</label>
+          <label class="option-label"><input type="radio" name="q5" value="C" onchange="handleSelect(this)"> C. HTTP và DNS</label>
+          <label class="option-label"><input type="radio" name="q5" value="D" onchange="handleSelect(this)"> D. MAC và Ethernet</label>
+        </div>
+      </div>
+
+      <!-- Câu 6 -->
+      <div class="question-card" id="card-q6">
+        <div class="question-title"><span>Câu 6</span> [Nhận biết]: Giao thức IP (Internet Protocol) có nhiệm vụ chính nào sau đây?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q6" value="A" onchange="handleSelect(this)"> A. Đảm bảo truyền dữ liệu theo từng ứng dụng chính xác và tin cậy.</label>
+          <label class="option-label"><input type="radio" name="q6" value="B" onchange="handleSelect(this)"> B. Cấp phát số hiệu cổng cho các ứng dụng đang chạy.</label>
+          <label class="option-label"><input type="radio" name="q6" value="C" onchange="handleSelect(this)"> C. Quy định cách đánh địa chỉ và định tuyến để chuyển các gói dữ liệu từ LAN của máy gửi đến LAN của máy nhận.</label>
+          <label class="option-label"><input type="radio" name="q6" value="D" onchange="handleSelect(this)"> D. Phân giải tên miền bằng chữ thành địa chỉ IP.</label>
+        </div>
+      </div>
+
+      <!-- Câu 7 -->
+      <div class="question-card" id="card-q7">
+        <div class="question-title"><span>Câu 7</span> [Nhận biết]: Địa chỉ IPv4 có cấu trúc biểu diễn đặc trưng nào sau đây? (ví dụ: $192.168.1.3$)</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q7" value="A" onchange="handleSelect(this)"> A. Là một số 2 byte, viết dưới dạng hệ nhị phân.</label>
+          <label class="option-label"><input type="radio" name="q7" value="B" onchange="handleSelect(this)"> B. Là một số 8 byte, viết dưới dạng mã hexa.</label>
+          <label class="option-label"><input type="radio" name="q7" value="C" onchange="handleSelect(this)"> C. Là một số 16 byte, viết dưới dạng chuỗi ký tự.</label>
+          <label class="option-label"><input type="radio" name="q7" value="D" onchange="handleSelect(this)"> D. Là một số 4 byte, thường được viết dưới dạng hệ thập phân phân tách bởi dấu chấm.</label>
+        </div>
+      </div>
+
+      <!-- Câu 8 -->
+      <div class="question-card" id="card-q8">
+        <div class="question-title"><span>Câu 8</span> [Nhận biết]: Nhiệm vụ chính của giao thức TCP (Transmission Control Protocol) là gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q8" value="A" onchange="handleSelect(this)"> A. Đảm bảo việc truyền dữ liệu theo từng ứng dụng một cách chính xác, tin cậy và hiệu quả.</label>
+          <label class="option-label"><input type="radio" name="q8" value="B" onchange="handleSelect(this)"> B. Định tuyến dẫn đường cho các gói tin trên phạm vi toàn cầu.</label>
+          <label class="option-label"><input type="radio" name="q8" value="C" onchange="handleSelect(this)"> C. Quy định cách xử lý khi xảy ra xung đột tín hiệu trong mạng LAN.</label>
+          <label class="option-label"><input type="radio" name="q8" value="D" onchange="handleSelect(this)"> D. Chuyển đổi tên miền trang web thành địa chỉ IP tương ứng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 9 -->
+      <div class="question-card" id="card-q9">
+        <div class="question-title"><span>Câu 9</span> [Thông hiểu]: Trong giao thức truyền thông mạng cục bộ (Ethernet), việc trao đổi dữ liệu giữa các máy tính trong mạng LAN căn cứ vào loại địa chỉ nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q9" value="A" onchange="handleSelect(this)"> A. Địa chỉ IP do nhà mạng cấp.</label>
+          <label class="option-label"><input type="radio" name="q9" value="B" onchange="handleSelect(this)"> B. Địa chỉ tên miền DNS.</label>
+          <label class="option-label"><input type="radio" name="q9" value="C" onchange="handleSelect(this)"> C. Số hiệu cổng ứng dụng (Port).</label>
+          <label class="option-label"><input type="radio" name="q9" value="D" onchange="handleSelect(this)"> D. Địa chỉ MAC bằng số khác nhau đi theo phần cứng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 10 -->
+      <div class="question-card" id="card-q10">
+        <div class="question-title"><span>Câu 10</span> [Thông hiểu]: Trong mạng LAN, khi dữ liệu được chuyển đi, quy định nào của giao thức Ethernet giúp máy nhận phát hiện lỗi truyền và yêu cầu gửi lại?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q10" value="A" onchange="handleSelect(this)"> A. Quy định khung truyền dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q10" value="B" onchange="handleSelect(this)"> B. Quy định về cổng mặc định (default gateway).</label>
+          <label class="option-label"><input type="radio" name="q10" value="C" onchange="handleSelect(this)"> C. Quy định về mã kiểm tra đi kèm dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q10" value="D" onchange="handleSelect(this)"> D. Quy định về số hiệu cổng ứng dụng.</label>
+        </div>
+      </div>
+
+      <!-- Câu 11 -->
+      <div class="question-card" id="card-q11">
+        <div class="question-title"><span>Câu 11</span> [Thông hiểu]: Vì sao giao thức Ethernet quy định dữ liệu truyền trong mạng LAN phải được chia thành từng gói (khung) có độ dài xác định?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q11" value="A" onchange="handleSelect(this)"> A. Để tránh việc truyền một lượng tin dài không giới hạn trên đường truyền.</label>
+          <label class="option-label"><input type="radio" name="q11" value="B" onchange="handleSelect(this)"> B. Để thay thế hoàn toàn địa chỉ IP bằng địa chỉ MAC.</label>
+          <label class="option-label"><input type="radio" name="q11" value="C" onchange="handleSelect(this)"> C. Để tự động phân giải tên miền thành địa chỉ IP.</label>
+          <label class="option-label"><input type="radio" name="q11" value="D" onchange="handleSelect(this)"> D. Để không cần sử dụng mã kiểm tra khi gửi tin.</label>
+        </div>
+      </div>
+
+      <!-- Câu 12 -->
+      <div class="question-card" id="card-q12">
+        <div class="question-title"><span>Câu 12</span> [Thông hiểu]: Điểm khác biệt cốt lõi giữa địa chỉ MAC và địa chỉ IP là gì?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q12" value="A" onchange="handleSelect(this)"> A. MAC là địa chỉ logic dùng để định tuyến toàn cầu, IP là địa chỉ vật lý đi theo phần cứng.</label>
+          <label class="option-label"><input type="radio" name="q12" value="B" onchange="handleSelect(this)"> B. MAC chỉ dùng cho ứng dụng thư điện tử, IP chỉ dùng cho ứng dụng truyền siêu văn bản.</label>
+          <label class="option-label"><input type="radio" name="q12" value="C" onchange="handleSelect(this)"> C. MAC có độ dài $4\text{ byte}$, còn IP không có độ dài xác định.</label>
+          <label class="option-label"><input type="radio" name="q12" value="D" onchange="handleSelect(this)"> D. MAC là địa chỉ vật lý đi theo phần cứng dùng trong cùng mạng LAN, IP là địa chỉ logic dùng để định tuyến toàn cầu.</label>
+        </div>
+      </div>
+
+      <!-- Câu 13 -->
+      <div class="question-card" id="card-q13">
+        <div class="question-title"><span>Câu 13</span> [Thông hiểu]: Trong phương pháp định tuyến tĩnh, router căn cứ vào đâu để biết nhóm địa chỉ IP nào sẽ được gửi theo cổng nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q13" value="A" onchange="handleSelect(this)"> A. Bảng định tuyến (Routing table).</label>
+          <label class="option-label"><input type="radio" name="q13" value="B" onchange="handleSelect(this)"> B. Địa chỉ MAC của máy gửi.</label>
+          <label class="option-label"><input type="radio" name="q13" value="C" onchange="handleSelect(this)"> C. Mã kiểm tra lỗi của khung truyền.</label>
+          <label class="option-label"><input type="radio" name="q13" value="D" onchange="handleSelect(this)"> D. Số hiệu cổng ứng dụng (Port).</label>
+        </div>
+      </div>
+
+      <!-- Câu 14 -->
+      <div class="question-card" id="card-q14">
+        <div class="question-title"><span>Câu 14</span> [Thông hiểu]: Để dữ liệu truyền đi không bị lẫn giữa các ứng dụng đang cùng chạy trên một máy tính, giao thức TCP thực hiện giải pháp nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q14" value="A" onchange="handleSelect(this)"> A. Gán địa chỉ MAC của thiết bị nhận cho từng gói tin.</label>
+          <label class="option-label"><input type="radio" name="q14" value="B" onchange="handleSelect(this)"> B. Chuyển tất cả gói dữ liệu qua cổng mặc định (default gateway).</label>
+          <label class="option-label"><input type="radio" name="q14" value="C" onchange="handleSelect(this)"> C. Cấp phát cho mỗi ứng dụng đang chạy một số hiệu cổng (Port) và gắn cổng đó vào gói dữ liệu.</label>
+          <label class="option-label"><input type="radio" name="q14" value="D" onchange="handleSelect(this)"> D. Yêu cầu giao thức DNS phân giải lại địa chỉ IP.</label>
+        </div>
+      </div>
+
+      <!-- Câu 15 -->
+      <div class="question-card" id="card-q15">
+        <div class="question-title"><span>Câu 15</span> [Thông hiểu]: Tại sao giao thức TCP ở nơi gửi phải cắt dữ liệu thành nhiều gói có độ dài xác định và đánh số thứ tự trước khi truyền?</div>
+        
+        <!-- Sơ đồ SVG biểu diễn cơ chế TCP cắt dữ liệu thành từng gói nhỏ (Hình vector sắc nét, không lỗi) -->
+        <div class="diagram-container">
+          <svg width="100%" height="80" viewBox="0 0 500 80" style="max-width: 500px; display: inline-block;">
+            <rect x="10" y="20" width="100" height="40" rx="5" fill="#e0e7ff" stroke="#3730a3" stroke-width="2"/>
+            <text x="60" y="45" font-size="12" font-weight="bold" fill="#1e1b4b" text-anchor="middle">Dữ liệu gốc</text>
+            
+            <path d="M 120 40 L 150 40" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+            
+            <rect x="160" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+            <text x="195" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #1</text>
+            
+            <rect x="245" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+            <text x="280" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #2</text>
+            
+            <rect x="330" y="20" width="70" height="40" rx="4" fill="#dcfce7" stroke="#166534" stroke-width="1.5"/>
+            <text x="365" y="45" font-size="12" fill="#14532d" text-anchor="middle">Gói #3</text>
+
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q15" value="A" onchange="handleSelect(this)"> A. Vì các gói tin chỉ đi được qua duy nhất một đường cố định.</label>
+          <label class="option-label"><input type="radio" name="q15" value="B" onchange="handleSelect(this)"> B. Vì các gói tin có thể đi theo nhiều đường khác nhau và đến không đúng thứ tự, giúp nơi nhận căn cứ vào số thứ tự để ráp lại đúng cấu trúc ban đầu.</label>
+          <label class="option-label"><input type="radio" name="q15" value="C" onchange="handleSelect(this)"> C. Vì để đảm bảo địa chỉ MAC không bị đổi trong quá trình truyền.</label>
+          <label class="option-label"><input type="radio" name="q15" value="D" onchange="handleSelect(this)"> D. Vì để chuyển đổi tên miền thành địa chỉ nhị phân.</label>
+        </div>
+      </div>
+
+      <!-- Câu 16 -->
+      <div class="question-card" id="card-q16">
+        <div class="question-title"><span>Câu 16</span> [Vận dụng]: Một router nhận được một gói dữ liệu cần chuyển tiếp, nhưng địa chỉ nhận của gói dữ liệu này không xuất hiện trong bảng định tuyến (Routing table) của router. Dựa trên cơ chế định tuyến, router sẽ xử lý gói dữ liệu này như thế nào?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q16" value="A" onchange="handleSelect(this)"> A. Hủy bỏ gói dữ liệu và báo lỗi trực tiếp về máy gửi.</label>
+          <label class="option-label"><input type="radio" name="q16" value="B" onchange="handleSelect(this)"> B. Chuyển gói dữ liệu ngược về địa chỉ MAC của máy gửi trong LAN.</label>
+          <label class="option-label"><input type="radio" name="q16" value="C" onchange="handleSelect(this)"> C. Yêu cầu giao thức TCP cấp phát lại một số hiệu cổng mới.</label>
+          <label class="option-label"><input type="radio" name="q16" value="D" onchange="handleSelect(this)"> D. Tự động gửi gói dữ liệu qua cổng mặc định (default gateway).</label>
+        </div>
+      </div>
+
+      <!-- Câu 17 -->
+      <div class="question-card" id="card-q17">
+        <div class="question-title"><span>Câu 17</span> [Vận dụng]: Trong quá trình chuyển một gói tin trên Internet, các gói tin được gán địa chỉ IP của máy gửi và máy nhận. Khi gói tin cần di chuyển trên đường truyền vật lý để tới thiết bị nhận tiếp theo, thông tin nào bắt buộc phải được gán thêm vào gói tin?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q17" value="A" onchange="handleSelect(this)"> A. Tên miền DNS của máy chủ đích.</label>
+          <label class="option-label"><input type="radio" name="q17" value="B" onchange="handleSelect(this)"> B. Mã kiểm tra độ dài khung truyền.</label>
+          <label class="option-label"><input type="radio" name="q17" value="C" onchange="handleSelect(this)"> C. Địa chỉ MAC của thiết bị nhận tiếp theo.</label>
+          <label class="option-label"><input type="radio" name="q17" value="D" onchange="handleSelect(this)"> D. Số hiệu cổng ứng dụng (Port) của giao thức HTTP.</label>
+        </div>
+      </div>
+
+      <!-- Câu 18 -->
+      <div class="question-card" id="card-q18">
+        <div class="question-title"><span>Câu 18</span> [Vận dụng]: Trong quá trình truyền tệp tin qua mạng Internet bằng giao thức TCP, một số gói dữ liệu bị thất lạc do nghẽn mạng. Cơ chế nào của TCP giúp đảm bảo tệp tin nhận được ở máy đích vẫn đầy đủ và chính xác?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q18" value="A" onchange="handleSelect(this)"> A. Cơ chế tự động chuyển gói tin qua cổng mặc định (default gateway).</label>
+          <label class="option-label"><input type="radio" name="q18" value="B" onchange="handleSelect(this)"> B. Cơ chế xác nhận giữa nơi gửi và nơi nhận để phát hiện gói tin bị sai sót hoặc thất lạc và yêu cầu gửi lại.</label>
+          <label class="option-label"><input type="radio" name="q18" value="C" onchange="handleSelect(this)"> C. Cơ chế sử dụng địa chỉ MAC để thay thế gói tin bị mất.</label>
+          <label class="option-label"><input type="radio" name="q18" value="D" onchange="handleSelect(this)"> D. Cơ chế phân giải tên miền của giao thức DNS.</label>
+        </div>
+      </div>
+
+      <!-- Câu 19 -->
+      <div class="question-card" id="card-q19">
+        <div class="question-title"><span>Câu 19</span> [Vận dụng]: Một người dùng mở trình duyệt web và nhập tên miền moet.edu.vn. Dựa vào tài liệu nguồn, giao thức nào sẽ đảm nhận việc phân giải tên bằng chữ này thành địa chỉ IP tương ứng để máy tính thiết lập kết nối?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q19" value="A" onchange="handleSelect(this)"> A. Giao thức HTTP</label>
+          <label class="option-label"><input type="radio" name="q19" value="B" onchange="handleSelect(this)"> B. Giao thức DNS</label>
+          <label class="option-label"><input type="radio" name="q19" value="C" onchange="handleSelect(this)"> C. Giao thức SMTP</label>
+          <label class="option-label"><input type="radio" name="q19" value="D" onchange="handleSelect(this)"> D. Giao thức Ethernet</label>
+        </div>
+      </div>
+
+      <!-- Câu 20 -->
+      <div class="question-card" id="card-q20">
+        <div class="question-title"><span>Câu 20</span> [Vận dụng]: Khi một máy tính gửi một bức thư điện tử có đính kèm tệp tin đến máy chủ thư, quy trình sử dụng các giao thức diễn ra như thế nào theo đúng chức năng được nêu trong tài liệu?</div>
+        <div class="options">
+          <label class="option-label"><input type="radio" name="q20" value="A" onchange="handleSelect(this)"> A. Giao thức HTTP quy định việc gửi thư, TCP phân giải địa chỉ IP, và IP cấp phát cổng ứng dụng.</label>
+          <label class="option-label"><input type="radio" name="q20" value="B" onchange="handleSelect(this)"> B. Giao thức SMTP quy định việc gửi thư; TCP cắt dữ liệu, đánh số thứ tự và đảm bảo truyền chính xác; IP quy định đánh địa chỉ và định tuyến gói tin.</label>
+          <label class="option-label"><input type="radio" name="q20" value="C" onchange="handleSelect(this)"> C. Giao thức POP3 quy định việc gửi thư; Ethernet gán địa chỉ IP; TCP phân giải tên miền.</label>
+          <label class="option-label"><input type="radio" name="q20" value="D" onchange="handleSelect(this)"> D. Giao thức IMAP quy định việc gửi thư; DNS kiểm tra mã lỗi; IP gán cổng mặc định.</label>
+        </div>
+      </div>
+
+      <!-- Click Nộp Bài -->
+      <div class="submit-container">
+        <button type="button" class="btn-submit" onclick="submitQuiz()">Click nộp</button>
+      </div>
+    </form>
+
+    <!-- Khối kết quả (chỉ hiện sau khi nộp thành công) -->
+    <div id="result-box">
+      <h3>KẾT QUẢ BÀI LÀM</h3>
+      <p id="student-summary"></p>
+      <div class="score-badge" id="score-text">10 / 10</div>
+      <p id="detail-text"></p>
+      
+      <!-- Nhóm nút hành động: Xuất file Excel & Xem chi tiết -->
+      <div class="btn-group-action">
+        <button type="button" class="btn-excel" onclick="exportToExcel()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          Xuất file.xls
+        </button>
+        <button type="button" class="btn-toggle-detail" id="btn-toggle" onclick="toggleDetails()">Xem chi tiết</button>
+      </div>
+    </div>
+
+    <!-- Khối chi tiết đáp án & lời giải (Bật/tắt) -->
+    <div class="detail-section" id="detail-section">
+      <h3>BẢNG ĐÁP ÁN ĐÚNG</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Câu</th>
+              <th>Đáp án</th>
+              <th>Câu</th>
+              <th>Đáp án</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td><strong>B</strong></td><td><strong>11</strong></td><td><strong>A</strong></td></tr>
+            <tr><td><strong>2</strong></td><td><strong>C</strong></td><td><strong>12</strong></td><td><strong>D</strong></td></tr>
+            <tr><td><strong>3</strong></td><td><strong>D</strong></td><td><strong>13</strong></td><td><strong>A</strong></td></tr>
+            <tr><td><strong>4</strong></td><td><strong>A</strong></td><td><strong>14</strong></td><td><strong>C</strong></td></tr>
+            <tr><td><strong>5</strong></td><td><strong>A</strong></td><td><strong>15</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>6</strong></td><td><strong>C</strong></td><td><strong>16</strong></td><td><strong>D</strong></td></tr>
+            <tr><td><strong>7</strong></td><td><strong>D</strong></td><td><strong>17</strong></td><td><strong>C</strong></td></tr>
+            <tr><td><strong>8</strong></td><td><strong>A</strong></td><td><strong>18</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>9</strong></td><td><strong>D</strong></td><td><strong>19</strong></td><td><strong>B</strong></td></tr>
+            <tr><td><strong>10</strong></td><td><strong>C</strong></td><td><strong>20</strong></td><td><strong>B</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>HƯỚNG DẪN GIẢI CHI TIẾT</h3>
+      <div class="explanation-item"><strong>Câu 1: B</strong> — Căn cứ vào Mục 1a: Giao thức mạng (network protocol) hay giao thức truyền thông là tập hợp các quy định về cách thức giao tiếp để truyền dữ liệu giữa các đối tượng tham gia mạng.</div>
+      <div class="explanation-item"><strong>Câu 2: C</strong> — Căn cứ vào Mục 1a: Các quy định này nhằm đảm bảo việc gửi và nhận dữ liệu được thực hiện chính xác, tin cậy và hiệu quả.</div>
+      <div class="explanation-item"><strong>Câu 3: D</strong> — Căn cứ vào Mục 1b: Giao thức SMTP (Simple Mail Transfer Protocol) quy định việc gửi thư điện tử.</div>
+      <div class="explanation-item"><strong>Câu 4: A</strong> — Căn cứ vào Mục 1b: POP3 (Post Office Protocol phiên bản 3) &amp; IMAP (Internet Message Access Protocol) quy định việc nhận và tải thư điện tử.</div>
+      <div class="explanation-item"><strong>Câu 5: A</strong> — Căn cứ vào Mục 2: Hai giao thức quan trọng nhất xác định cách thức kết nối và trao đổi dữ liệu trên mạng diện rộng hoặc Internet là IP (Internet Protocol) và TCP (Transmission Control Protocol).</div>
+      <div class="explanation-item"><strong>Câu 6: C</strong> — Căn cứ vào Mục 2a: Giao thức IP quy định cách đánh địa chỉ và định tuyến (dẫn đường) để chuyển các gói dữ liệu từ LAN của máy gửi đến LAN của máy nhận.</div>
+      <div class="explanation-item"><strong>Câu 7: D</strong> — Căn cứ vào Mục 2a: Địa chỉ IPv4 là một số 4 byte, thường được viết dưới dạng hệ thập phân phân tách bởi dấu chấm (dot decimal, ví dụ: 192.168.1.3).</div>
+      <div class="explanation-item"><strong>Câu 8: A</strong> — Căn cứ vào Mục 2b: Nhiệm vụ chính của giao thức TCP là đảm bảo việc truyền dữ liệu theo từng ứng dụng một cách chính xác, tin cậy và hiệu quả.</div>
+      <div class="explanation-item"><strong>Câu 9: D</strong> — Căn cứ vào Mục 1b: Trong giao thức Ethernet, truyền dữ liệu trong LAN căn cứ vào địa chỉ MAC (Media Access Control) bằng số khác nhau đi theo phần cứng.</div>
+      <div class="explanation-item"><strong>Câu 10: C</strong> — Căn cứ vào Mục 1b: Dữ liệu chuyển đi có kèm mã kiểm tra để máy nhận phát hiện lỗi truyền; nếu có lỗi sẽ yêu cầu gửi lại.</div>
+      <div class="explanation-item"><strong>Câu 11: A</strong> — Căn cứ vào Mục 1b: Giao thức Ethernet quy định dữ liệu được chia thành từng gói (khung) có độ dài xác định chứ không truyền một lượng tin dài không giới hạn.</div>
+      <div class="explanation-item"><strong>Câu 12: D</strong> — Căn cứ vào Mục 2a: Địa chỉ MAC là địa chỉ vật lý đi theo phần cứng, dùng khi gói tin truyền trên đường truyền vật lý trong cùng mạng LAN; địa chỉ IP là địa chỉ logic dùng để định tuyến dẫn đường trên phạm vi toàn cầu.</div>
+      <div class="explanation-item"><strong>Câu 13: A</strong> — Căn cứ vào Mục 2a: Trong phương pháp định tuyến tĩnh, mỗi router sử dụng một bảng định tuyến (Routing table) hướng dẫn nhóm địa chỉ IP nào sẽ gửi theo cổng nào.</div>
+      <div class="explanation-item"><strong>Câu 14: C</strong> — Căn cứ vào Mục 2b: Mỗi ứng dụng đang chạy được cấp phát một số hiệu cổng (Port). Gói dữ liệu chuyển đi được gắn cổng ứng dụng để không bị lẫn giữa các ứng dụng.</div>
+      <div class="explanation-item"><strong>Câu 15: B</strong> — Căn cứ vào Mục 2b: Do các gói tin có thể đi theo nhiều đường khác nhau và đến không đúng thứ tự, TCP ở nơi nhận sẽ căn cứ vào số thứ tự để ráp lại đúng cấu trúc ban đầu.</div>
+      <div class="explanation-item"><strong>Câu 16: D</strong> — Căn cứ vào Mục 2a: Cổng mặc định (default gateway): Nếu địa chỉ nhận không có trong bảng hướng dẫn (bảng định tuyến) của router, gói dữ liệu sẽ tự động được gửi qua cổng mặc định.</div>
+      <div class="explanation-item"><strong>Câu 17: C</strong> — Căn cứ vào Mục 2a: Các gói tin gửi đi trên Internet luôn được gán địa chỉ IP của máy gửi và máy nhận. Để đi trên đường truyền vật lý, gói tin cần được gán thêm địa chỉ MAC của thiết bị nhận tiếp theo.</div>
+      <div class="explanation-item"><strong>Câu 18: B</strong> — Căn cứ vào Mục 2b: Quy định cơ chế xác nhận giữa nơi gửi và nơi nhận để phát hiện gói tin bị sai sót hoặc thất lạc và yêu cầu gửi lại.</div>
+      <div class="explanation-item"><strong>Câu 19: B</strong> — Căn cứ vào Mục 2c: DNS (Domain Name System) là giao thức hệ thống tên miền, giúp phân giải tên bằng chữ dễ nhớ (như moet.edu.vn) thành địa chỉ IP tương ứng.</div>
+      <div class="explanation-item"><strong>Câu 20: B</strong> — Căn cứ tổng hợp Mục 1b, 2a, 2b: SMTP chịu trách nhiệm quy định việc gửi thư; TCP chia nhỏ, đánh số thứ tự và đảm bảo tính chính xác, tin cậy; IP quy định việc đánh địa chỉ logic và định tuyến gói dữ liệu.</div>
+    </div>
+  </div>
+
+  <script>
+    // Bảng đáp án chuẩn 20 câu[cite: 1]
+    const correctAnswers = {
+      q1: "B", q2: "C", q3: "D", q4: "A", q5: "A",
+      q6: "C", q7: "D", q8: "A", q9: "D", q10: "C",
+      q11: "A", q12: "D", q13: "A", q14: "C", q15: "B",
+      q16: "D", q17: "C", q18: "B", q19: "B", q20: "B"
+    };
+
+    let userSubmissions = {};
+    let finalScore = 0;
+    let correctCountResult = 0;
+
+    // Web Audio API
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return audioCtx;
+    }
+
+    // Âm thanh sôi động khi học sinh chọn phương án
+    function playClickSound() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const chord = [523.25, 659.25, 783.99, 1046.50];
+      const randomFreq = chord[Math.floor(Math.random() * chord.length)];
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(randomFreq, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(randomFreq * 1.6, ctx.currentTime + 0.12);
+
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.12);
+    }
+
+    // Âm cảnh báo khi chưa hoàn thành
+    function playWarningSound() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(260, ctx.currentTime);
+      osc.frequency.setValueAtTime(180, ctx.currentTime + 0.15);
+
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.3);
+    }
+
+    // Âm thanh sôi động ăn mừng khi nộp thành công
+    function playSubmitFanfare() {
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+
+      const notes = [
+        { f: 523.25, t: 0.0, d: 0.12 },
+        { f: 659.25, t: 0.12, d: 0.12 },
+        { f: 783.99, t: 0.24, d: 0.12 },
+        { f: 1046.5, t: 0.36, d: 0.35 }
+      ];
+
+      notes.forEach(n => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.f, ctx.currentTime + n.t);
+
+        gain.gain.setValueAtTime(0.3, ctx.currentTime + n.t);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + n.t + n.d);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(ctx.currentTime + n.t);
+        osc.stop(ctx.currentTime + n.t + n.d);
+      });
+    }
+
+    // Xử lý khi chọn câu trả lời
+    function handleSelect(radio) {
+      playClickSound();
+
+      const parentCard = radio.closest('.question-card');
+      parentCard.classList.remove('unanswered-alert');
+      parentCard.querySelectorAll('.option-label').forEach(label => label.classList.remove('selected'));
+      radio.closest('.option-label').classList.add('selected');
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      let count = 0;
+      for (let i = 1; i <= 20; i++) {
+        if (document.querySelector(`input[name="q${i}"]:checked`)) {
+          count++;
+        }
+      }
+      document.getElementById('answered-count').innerText = count;
+    }
+
+    // Xử lý Click nộp bài
+    function submitQuiz() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const classroom = document.getElementById("classroom").value.trim();
+      const studentId = document.getElementById("student-id").value.trim();
+
+      // 1. Kiểm tra thông tin học sinh
+      if (!fullname || !classroom || !studentId) {
+        playWarningSound();
+        alert("Vui lòng điền đầy đủ: Họ tên học sinh, Lớp và Số thứ tự trước khi nộp bài!");
+        return;
+      }
+
+      // Xóa cảnh báo cũ
+      document.querySelectorAll('.question-card').forEach(card => card.classList.remove('unanswered-alert'));
+
+      // 2. Kiểm tra điều kiện phải trả lời đầy đủ 20 câu
+      const unanswered = [];
+      const totalQuestions = 20;
+
+      for (let i = 1; i <= totalQuestions; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+          unanswered.push(i);
+        } else {
+          userSubmissions[`q${i}`] = selected.value;
+        }
+      }
+
+      if (unanswered.length > 0) {
+        playWarningSound();
+
+        unanswered.forEach(num => {
+          const card = document.getElementById(`card-q${num}`);
+          if (card) card.classList.add('unanswered-alert');
+        });
+
+        const firstCard = document.getElementById(`card-q${unanswered[0]}`);
+        if (firstCard) {
+          firstCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        alert(`Bạn chưa hoàn thành đầy đủ! Còn thiếu ${unanswered.length} câu:\n(Câu: ${unanswered.join(', ')})\n\nPhải trả lời đầy đủ 20 câu mới được nộp bài.`);
+        return;
+      }
+
+      // 3. Chấm điểm
+      let correctCount = 0;
+      for (let i = 1; i <= totalQuestions; i++) {
+        if (userSubmissions[`q${i}`] === correctAnswers[`q${i}`]) {
+          correctCount++;
+        }
+      }
+
+      correctCountResult = correctCount;
+      finalScore = (correctCount * (10 / totalQuestions)).toFixed(1);
+
+      playSubmitFanfare();
+
+      // Hiển thị khung kết quả
+      const resultBox = document.getElementById("result-box");
+      const summaryText = document.getElementById("student-summary");
+      const scoreText = document.getElementById("score-text");
+      const detailText = document.getElementById("detail-text");
+
+      summaryText.innerHTML = `Thí sinh: <strong>${fullname}</strong> — Lớp: <strong>${classroom}</strong> (STT: ${studentId})`;
+      scoreText.innerText = `${finalScore} / 10 điểm`;
+      detailText.innerHTML = `Số câu trả lời đúng: <strong>${correctCount}/${totalQuestions}</strong> câu.`;
+
+      resultBox.style.display = "block";
+
+      // Vô hiệu hóa nút nộp
+      const submitBtn = document.querySelector(".btn-submit");
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Đã nộp bài thành công";
+      submitBtn.style.background = "#94a3b8";
+      submitBtn.style.cursor = "not-allowed";
+
+      // Khóa toàn bộ các radio button
+      document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
+
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Chức năng bật/tắt (Toggle) hiển thị đáp án và lời giải chi tiết
+    function toggleDetails() {
+      const detailSection = document.getElementById("detail-section");
+      const btnToggle = document.getElementById("btn-toggle");
+
+      if (detailSection.style.display === "none" || detailSection.style.display === "") {
+        detailSection.style.display = "block";
+        btnToggle.innerText = "Ẩn chi tiết đáp án";
+        btnToggle.style.background = "#4b5563";
+        detailSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        detailSection.style.display = "none";
+        btnToggle.innerText = "Xem chi tiết";
+        btnToggle.style.background = "var(--purple)";
+      }
+    }
+
+    // Chức năng xuất dữ liệu ra file Excel (.xls)
+    function exportToExcel() {
+      const fullname = document.getElementById("fullname").value.trim();
+      const classroom = document.getElementById("classroom").value.trim();
+      const studentId = document.getElementById("student-id").value.trim();
+      const totalQuestions = 20;
+
+      // Xây dựng template HTML tương thích Excel XML (.xls)
+      let tableRows = '';
+      for (let i = 1; i <= totalQuestions; i++) {
+        const studentAns = userSubmissions[`q${i}`] || 'Chưa chọn';
+        const correctAns = correctAnswers[`q${i}`];
+        const isCorrect = studentAns === correctAns ? 'Đúng' : 'Sai';
+        const resultColor = studentAns === correctAns ? '#166534' : '#991b1b';
+
+        tableRows += `
+          <tr>
+            <td style="text-align: center;">Câu ${i}</td>
+            <td style="text-align: center; font-weight: bold;">${studentAns}</td>
+            <td style="text-align: center; font-weight: bold;">${correctAns}</td>
+            <td style="text-align: center; color: ${resultColor}; font-weight: bold;">${isCorrect}</td>
+          </tr>
+        `;
+      }
+
+      const excelTemplate = `
+        <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+              xmlns:x="urn:schemas-microsoft-com:office:excel" 
+              xmlns="http://www.w3.org/TR/REC-html40">
+        <head>
+          <meta charset="utf-8">
+          <!--[if gte mso 9]>
+          <xml>
+            <x:ExcelWorkbook>
+              <x:ExcelWorksheets>
+                <x:ExcelWorksheet>
+                  <x:Name>KetQuaKiemTra</x:Name>
+                  <x:WorksheetOptions>
+                    <x:DisplayGridlines/>
+                  </x:WorksheetOptions>
+                </x:ExcelWorksheet>
+              </x:ExcelWorksheets>
+            </x:ExcelWorkbook>
+          </xml>
+          <![endif]-->
+          <style>
+            table { border-collapse: collapse; width: 100%; }
+            th { background-color: #2563eb; color: #ffffff; border: 1px solid #000000; padding: 6px; }
+            td { border: 1px solid #000000; padding: 5px; }
+            .title { font-size: 16pt; font-weight: bold; text-align: center; color: #1e3a8a; }
+            .info-label { font-weight: bold; background-color: #f1f5f9; }
+          </style>
+        </head>
+        <body>
+          <table>
+            <tr><td colspan="4" class="title">KẾT QUẢ KIỂM TRA MÔN TIN HỌC 12</td></tr>
+            <tr><td colspan="4" style="text-align: center; font-style: italic;">Bài 4: Giao thức mạng</td></tr>
+            <tr><td colspan="4"></td></tr>
+            <tr>
+              <td class="info-label">Họ tên học sinh:</td>
+              <td colspan="3">${fullname}</td>
+            </tr>
+            <tr>
+              <td class="info-label">Lớp:</td>
+              <td>${classroom}</td>
+              <td class="info-label">Số thứ tự:</td>
+              <td>${studentId}</td>
+            </tr>
+            <tr>
+              <td class="info-label">Số câu đúng:</td>
+              <td>${correctCountResult} / ${totalQuestions}</td>
+              <td class="info-label">Điểm số:</td>
+              <td style="font-weight: bold; color: #dc2626; font-size: 12pt;">${finalScore} / 10</td>
+            </tr>
+            <tr><td colspan="4"></td></tr>
+            <thead>
+              <tr>
+                <th>Câu hỏi</th>
+                <th>Đáp án của học sinh</th>
+                <th>Đáp án đúng</th>
+                <th>Kết quả</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableRows}
+            </tbody>
+          </table>
+        </body>
+        </html>
+      `;
+
+      // Tạo Blob và kích hoạt tải file .xls
+      const blob = new Blob([excelTemplate], { type: 'application/vnd.ms-excel;charset=utf-8' });
+      const downloadLink = document.createElement("a");
+      const sanitizedName = fullname.replace(/\s+/g, '_');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = `KetQua_${sanitizedName}_Lop${classroom}.xls`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  </script>
+</body>
+</html>
